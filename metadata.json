@@ -1,0 +1,6 @@
+{
+  "name": "Automação IoT",
+  "description": "Customizable high-performance MQTT Dashboard with real-time dynamic charts, TLS security, and voice commands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

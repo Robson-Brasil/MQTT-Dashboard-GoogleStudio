@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MQTT-Dashboard-GoogleStudio — Complete Call Flow &amp; Architecture Documentation</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #0f172a; --surface: #1e293b; --border: #334155;
+  --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8;
+  --warn: #fbbf24; --err: #f87171; --ok: #34d399;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 2.4rem; margin-bottom: 8px; background: linear-gradient(135deg, var(--accent), #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.7rem; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 1.25rem; margin: 32px 0 12px; color: var(--accent); }
+h4 { font-size: 1.05rem; margin: 20px 0 8px; color: var(--warn); }
+p { margin: 8px 0; color: var(--muted); }
+.subtitle { color: var(--muted); font-size: 1.1rem; margin-bottom: 32px; }
+.mermaid { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; overflow-x: auto; position: relative; }
+.mermaid.is-enhanced { padding: 0; overflow: hidden; min-height: 260px; }
+.mermaid-viewport { padding: 54px 24px 24px; overflow: hidden; cursor: grab; touch-action: none; min-height: 260px; }
+.mermaid-viewport.is-dragging { cursor: grabbing; }
+.mermaid-viewport svg { max-width: none !important; height: auto; transform-origin: 0 0; transition: transform 120ms ease; }
+.mermaid-toolbar { position: absolute; top: 10px; right: 10px; z-index: 3; display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(15,23,42,0.92); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
+.mermaid-toolbar button, .mermaid-toolbar .zoom-level { height: 28px; min-width: 32px; border: 1px solid var(--border); border-radius: 6px; background: #1e293b; color: var(--text); font: 600 0.78rem system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; }
+.mermaid-toolbar button { cursor: pointer; }
+.mermaid-toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+.mermaid-toolbar .zoom-level { min-width: 52px; color: var(--muted); background: transparent; }
+.call-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+.call-table th { background: #1a2744; color: var(--accent); text-align: left; padding: 10px 14px; border: 1px solid var(--border); }
+.call-table td { padding: 8px 14px; border: 1px solid var(--border); vertical-align: top; }
+.call-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.tag-async { background: #7c3aed33; color: #a78bfa; }
+.tag-class { background: #05966933; color: var(--ok); }
+.tag-func { background: #2563eb33; color: var(--accent); }
+.tag-cmd { background: #d9770633; color: var(--warn); }
+.tag-endpoint { background: #dc262633; color: var(--err); }
+.tag-hook { background: #db277733; color: #f472b6; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 16px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin: 16px 0; }
+.arrow-chain { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--accent); padding: 10px; background: rgba(56,189,248,0.06); border-radius: 6px; }
+code { font-family: 'Fira Code', 'Cascadia Code', monospace; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 3px; font-size: 0.88em; }
+ul, ol { margin: 8px 0 8px 24px; color: var(--muted); }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.nav { position: sticky; top: 0; background: var(--bg); z-index: 10; padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .container { padding: 16px; } h1 { font-size: 1.8rem; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>MQTT-Dashboard-GoogleStudio — Complete Call Flow &amp; Architecture Documentation</h1>
+<p class="subtitle">Generated from graphify knowledge graph: 227 nodes, 316 edges, 26 communities. Commit: unknown</p>
+
+<div class="nav">
+    <a href="#overview">Architecture Overview</a>
+    <a href="#extract-pipeline">Extraction Pipeline</a>
+    <a href="#build-graph">Graph Build</a>
+    <a href="#cli-skills">CLI &amp; Skill Installers</a>
+    <a href="#community-21">Community 21</a>
+    <a href="#community-23">Community 23</a>
+    <a href="#community-24">Community 24</a>
+    <a href="#community-15">Community 15</a>
+    <a href="#community-16">Community 16</a>
+    <a href="#community-17">Community 17</a>
+    <a href="#community-18">Community 18</a>
+    <a href="#community-19">Community 19</a>
+</div>
+
+<!-- ====== Architecture Overview ====== -->
+<h2 id="overview">1. Architecture Overview</h2>
+
+<div class="mermaid">
+
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    EXTRACT_PIPELINE_5F350230("Extraction Pipeline<br/><small>127 nodes</small>")
+    class EXTRACT_PIPELINE_5F350230 module;
+    BUILD_GRAPH_321CBB04("Graph Build<br/><small>52 nodes</small>")
+    class BUILD_GRAPH_321CBB04 module;
+    CLI_SKILLS_9964CBB8("CLI &amp; Skill Installers<br/><small>28 nodes</small>")
+    class CLI_SKILLS_9964CBB8 module;
+    COMMUNITY_21_47BA4108("Community 21<br/><small>10 nodes</small>")
+    class COMMUNITY_21_47BA4108 module;
+    COMMUNITY_23_58D9DE5D("Community 23<br/><small>3 nodes</small>")
+    class COMMUNITY_23_58D9DE5D module;
+    COMMUNITY_24_ECF60D36("Community 24<br/><small>2 nodes</small>")
+    class COMMUNITY_24_ECF60D36 module;
+    COMMUNITY_15_4BECAAD7("Community 15<br/><small>1 nodes</small>")
+    class COMMUNITY_15_4BECAAD7 module;
+    COMMUNITY_16_BD3EE841("Community 16<br/><small>1 nodes</small>")
+    class COMMUNITY_16_BD3EE841 module;
+    COMMUNITY_17_648F8D7C("Community 17<br/><small>1 nodes</small>")
+    class COMMUNITY_17_648F8D7C module;
+    COMMUNITY_18_A335126F("Community 18<br/><small>1 nodes</small>")
+    class COMMUNITY_18_A335126F module;
+    COMMUNITY_19_9462A0B9("Community 19<br/><small>1 nodes</small>")
+    class COMMUNITY_19_9462A0B9 module;
+    EXTRACT_PIPELINE_5F350230 -.-> BUILD_GRAPH_321CBB04
+    BUILD_GRAPH_321CBB04 -.-> CLI_SKILLS_9964CBB8
+    CLI_SKILLS_9964CBB8 -.-> COMMUNITY_21_47BA4108
+    COMMUNITY_21_47BA4108 -.-> COMMUNITY_23_58D9DE5D
+    COMMUNITY_23_58D9DE5D -.-> COMMUNITY_24_ECF60D36
+    COMMUNITY_24_ECF60D36 -.-> COMMUNITY_15_4BECAAD7
+    COMMUNITY_15_4BECAAD7 -.-> COMMUNITY_16_BD3EE841
+    COMMUNITY_16_BD3EE841 -.-> COMMUNITY_17_648F8D7C
+    COMMUNITY_17_648F8D7C -.-> COMMUNITY_18_A335126F
+    COMMUNITY_18_A335126F -.-> COMMUNITY_19_9462A0B9
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h4>Architecture Layers</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>Layer</th><th>Nodes</th><th>Communities</th></tr>
+      <tr><td>Extraction Pipeline</td><td>127</td><td><code>1, 0, 2, 4, 22, 7, 8, 10, 11</code></td></tr><tr><td>Graph Build</td><td>52</td><td><code>20, 25, 5, 9, 14</code></td></tr><tr><td>CLI &amp; Skill Installers</td><td>28</td><td><code>3, 6, 12, 13</code></td></tr><tr><td>Community 21</td><td>10</td><td><code>21</code></td></tr><tr><td>Community 23</td><td>3</td><td><code>23</code></td></tr><tr><td>Community 24</td><td>2</td><td><code>24</code></td></tr><tr><td>Community 15</td><td>1</td><td><code>15</code></td></tr><tr><td>Community 16</td><td>1</td><td><code>16</code></td></tr><tr><td>Community 17</td><td>1</td><td><code>17</code></td></tr><tr><td>Community 18</td><td>1</td><td><code>18</code></td></tr><tr><td>Community 19</td><td>1</td><td><code>19</code></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Core Flow</h4>
+    <div class="arrow-chain">Extraction Pipeline -&gt; Graph Build -&gt; CLI &amp; Skill Installers -&gt; Community 21 -&gt; Community 23 -&gt; Community 24 -&gt; Community 15</div>
+  </div>
+</div>
+<div class="grid">
+  <div class="card">
+    <h4>Graph Report Highlights</h4>
+    <ul>
+      <li>227 nodes · 316 edges · 26 communities (15 shown, 11 thin omitted)</li>
+      <li>Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 29 edges (avg confidence: 0.82)</li>
+      <li>Token cost: 0 input · 0 output</li>
+      <li>1. `MqttDao` - 25 edges</li>
+      <li>2. `NexusViewModel` - 22 edges</li>
+      <li>3. `MainActivity` - 21 edges</li>
+    </ul>
+  </div>
+</div>
+<hr>
+<!-- ====== 2. Extraction Pipeline ====== -->
+<h2 id="extract-pipeline">2. Extraction Pipeline</h2>
+<p>Extraction Pipeline groups implementation around app, com, example, data, mostly in example/data/Database.kt, com/example/MainActivity.kt, example/ui/NexusViewModel.kt. This section covers 127 nodes and 210 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Extraction Pipeline (127 nodes, 210 edges)
+    subgraph extract_pipeline_com_example_MainActivity_kt_3ee7e3df["com/example/MainActivity.kt"]
+        example_mainactivity_appscreen_8998c299("AppScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_mainactivity_2e06c893("MainActivity<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_mainactivity_oncreate_be27f36a("onCreate()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_splashscreen_bcb72ddb("SplashScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_topheader_59c60af0("TopHeader()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_bottomnavigationbar_c11cf4e5("BottomNavigationBar()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_dashboardscreen_33da6ed8("DashboardScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_logscreen_65aef5f2("LogScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_metricsscreen_a59f4a14("MetricsScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_deviceconfigscreen_55d1ea3a("DeviceConfigScreen()<br/><small>com/example/MainActivity.kt</small>")
+        example_mainactivity_voicescreen_1303257e("VoiceScreen()<br/><small>com/example/MainActivity.kt</small>")
+    end
+    subgraph extract_pipeline_com_example_ExampleInstrumented_139980f6["com/example/ExampleInstrumentedTest.kt"]
+        example_exampleinstrumentedtest_exampleinstrumen_3e5c1db9("ExampleInstrumentedTest<br/><small>com/example/ExampleInstrumentedTest.kt</small>")
+        example_exampleinstrumentedtest_exampleinstrumen_5e44f549("useAppContext()<br/><small>com/example/ExampleInstrumentedTest.kt</small>")
+    end
+    subgraph extract_pipeline_example_data_Database_kt_fb52ca31["example/data/Database.kt"]
+        data_database_mqttdao_9e797353("MqttDao<br/><small>example/data/Database.kt</small>")
+        data_database_telemetrysource_36fbd08a("TelemetrySource<br/><small>example/data/Database.kt</small>")
+    end
+    example_examplerobolectrictest_examplerobolectri_b350d579("ExampleRobolectricTest<br/><small>com/example/ExampleRobolectricTest.kt</small>")
+    data_nexusrepository_nexusrepository_1c926816("NexusRepository<br/><small>example/data/NexusRepository.kt</small>")
+    ui_nexusviewmodel_nexusviewmodel_0ead4e6b("NexusViewModel<br/><small>example/ui/NexusViewModel.kt</small>")
+    example_exampleinstrumentedtest_exampleinstrumen_3e5c1db9 -->|method| example_exampleinstrumentedtest_exampleinstrumen_5e44f549
+    example_mainactivity_mainactivity_2e06c893 -->|method| example_mainactivity_mainactivity_oncreate_be27f36a
+    example_mainactivity_mainactivity_oncreate_be27f36a -->|calls| example_mainactivity_appscreen_8998c299
+    example_mainactivity_splashscreen_bcb72ddb -->|calls| example_mainactivity_appscreen_8998c299
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_topheader_59c60af0
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_bottomnavigationbar_c11cf4e5
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_dashboardscreen_33da6ed8
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_logscreen_65aef5f2
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_metricsscreen_a59f4a14
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_deviceconfigscreen_55d1ea3a
+    example_mainactivity_appscreen_8998c299 -->|calls| example_mainactivity_voicescreen_1303257e
+    data_database_telemetrysource_36fbd08a -->|method| ui_nexusviewmodel_nexusviewmodel_0ead4e6b
+    %% Omitted for readability: 109 nodes, 0 edges
+    class example_mainactivity_appscreen_8998c299 function;
+    class example_mainactivity_mainactivity_2e06c893 klass;
+    class example_mainactivity_mainactivity_oncreate_be27f36a function;
+    class example_mainactivity_splashscreen_bcb72ddb function;
+    class example_mainactivity_topheader_59c60af0 function;
+    class example_mainactivity_bottomnavigationbar_c11cf4e5 function;
+    class example_mainactivity_dashboardscreen_33da6ed8 function;
+    class example_mainactivity_logscreen_65aef5f2 function;
+    class example_mainactivity_metricsscreen_a59f4a14 function;
+    class example_mainactivity_deviceconfigscreen_55d1ea3a function;
+    class example_mainactivity_voicescreen_1303257e function;
+    class example_exampleinstrumentedtest_exampleinstrumen_3e5c1db9 test;
+    class example_exampleinstrumentedtest_exampleinstrumen_5e44f549 test;
+    class data_database_mqttdao_9e797353 klass;
+    class data_database_telemetrysource_36fbd08a klass;
+    class example_examplerobolectrictest_examplerobolectri_b350d579 test;
+    class data_nexusrepository_nexusrepository_1c926816 klass;
+    class ui_nexusviewmodel_nexusviewmodel_0ead4e6b klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Database.kt</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Database.kt node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>MqttBrokerConfig</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>getBrokerConfig()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>MqttSubscription</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>addSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>initializeDefaultWidgetsIfNeeded()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>removeSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>MqttSubscription node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>MqttMessageLog</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>insertMessageLog()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>MqttMessageLog node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>TelemetrySource</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>addTelemetrySource()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusViewModel</code><br><small style="color:var(--muted)">example/ui/NexusViewModel.kt</small></td>
+  <td>TelemetrySource node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>.updateWidgetValueByTopic()</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttDao</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.updateWidgetValueByTopic() node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>AppDatabase</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>AppDatabase node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>migrate()</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>migrate() node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>getDatabase()</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>getDatabase() node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>NexusRepository.kt</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>NexusRepository.kt node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>addSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>addTelemetrySource()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>clearMessageLogs()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br>+14 more</td>
+  <td>NexusRepository node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>.getBrokerConfig()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttBrokerConfig</code><br><small style="color:var(--muted)">example/data/Database.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>saveBrokerConfig()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>.saveBrokerConfig()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>getBrokerConfig()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>.getAllSubscriptions()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>initializeDefaultWidgetsIfNeeded()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.getAllSubscriptions() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>.addSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttSubscription</code><br><small style="color:var(--muted)">example/data/Database.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>initializeDefaultWidgetsIfNeeded()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.addSubscription() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>.removeSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttSubscription</code><br><small style="color:var(--muted)">example/data/Database.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.removeSubscription() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>.insertMessageLog()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttMessageLog</code><br><small style="color:var(--muted)">example/data/Database.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.insertMessageLog() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>.clearMessageLogs()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.clearMessageLogs() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>.initializeDefaultWidgetsIfNeeded()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>addSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>getAllSubscriptions()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>MqttSubscription</code><br><small style="color:var(--muted)">example/data/Database.kt</small><br>+2 more</td>
+  <td><code>insertWidget()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.initializeDefaultWidgetsIfNeeded() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>.insertWidget()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>initializeDefaultWidgetsIfNeeded()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.insertWidget() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>.updateWidget()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.updateWidget() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>.deleteWidget()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.deleteWidget() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>.updateWidgetValue()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.updateWidgetValue() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>.updateWidgetValueBySubscribeTopic()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.updateWidgetValueBySubscribeTopic() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>.getMaxPosition()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.getMaxPosition() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>.updateWidgetPosition()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.updateWidgetPosition() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>.addTelemetrySource()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>TelemetrySource</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.addTelemetrySource() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>.removeTelemetrySource()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td>.removeTelemetrySource() node in example/data/NexusRepository.kt.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>Database.kt</code><br><small style="color:var(--muted)">example/data/Database.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Database.kt node in example/data/Database.kt.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>NexusRepository</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td><code>addSubscription()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>clearMessageLogs()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br><code>deleteWidget()</code><br><small style="color:var(--muted)">example/data/NexusRepository.kt</small><br>+14 more</td>
+  <td>No direct outbound edge</td>
+  <td>NexusRepository node in example/data/NexusRepository.kt.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>example/data/Database.kt</code></td><td>34 nodes</td></tr>
+<tr><td><code>com/example/MainActivity.kt</code></td><td>22 nodes</td></tr>
+<tr><td><code>example/ui/NexusViewModel.kt</code></td><td>21 nodes</td></tr>
+<tr><td><code>example/data/NexusRepository.kt</code></td><td>20 nodes</td></tr>
+<tr><td><code>example/ui/UiComponents.kt</code></td><td>7 nodes</td></tr>
+<tr><td><code>example/data/VoiceCommandManager.kt</code></td><td>4 nodes</td></tr>
+<tr><td><code>com/example/ExampleRobolectricTest.kt</code></td><td>4 nodes</td></tr>
+<tr><td><code>com/example/GreetingScreenshotTest.kt</code></td><td>4 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: method x86, contains x73, calls x25, references x3. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 3. Graph Build ====== -->
+<h2 id="build-graph">3. Graph Build</h2>
+<p>Graph Build groups implementation around instrucoes, buildmd, graphify, guidemd, mostly in INSTRUCOES_BUILD.md, GRAPHIFY_GUIDE.md, metadata.json. This section covers 52 nodes and 47 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Graph Build (52 nodes, 47 edges)
+    subgraph build_graph_GRAPHIFY_GUIDE_md_73bb5ee9["GRAPHIFY_GUIDE.md"]
+        mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194("Comandos essenciais<br/><small>GRAPHIFY_GUIDE.md</small>")
+        mqtt_dashboard_googlestudio_graphify_guide_guia_381698c3("Guia Graphify — MQTT Dashboard<br/><small>GRAPHIFY_GUIDE.md</small>")
+        mqtt_dashboard_googlestudio_graphify_guide_atual_9943c19c("Atualizar o grafo depois de mexer no có...<br/><small>GRAPHIFY_GUIDE.md</small>")
+        mqtt_dashboard_googlestudio_graphify_guide_expli_ec4494d6("Explicar um conceito<br/><small>GRAPHIFY_GUIDE.md</small>")
+        mqtt_dashboard_googlestudio_graphify_guide_pergu_22b83f44("Perguntar algo sobre o código<br/><small>GRAPHIFY_GUIDE.md</small>")
+        mqtt_dashboard_googlestudio_graphify_guide_recon_69242337("Reconstruir do zero (se adicionar docs,...<br/><small>GRAPHIFY_GUIDE.md</small>")
+    end
+    subgraph build_graph_metadata_json_19d2ba4e["metadata.json"]
+        metadata_json_fa75ead3("metadata.json")
+        mqtt_dashboard_googlestudio_metadata_name_40a90dd3("name<br/><small>metadata.json</small>")
+        mqtt_dashboard_googlestudio_metadata_description_ccd7c0f4("description<br/><small>metadata.json</small>")
+        mqtt_dashboard_googlestudio_metadata_requestfram_2b311b81("requestFramePermissions<br/><small>metadata.json</small>")
+        mqtt_dashboard_googlestudio_metadata_majorcapabi_fd62ce49("majorCapabilities<br/><small>metadata.json</small>")
+    end
+    subgraph build_graph_INSTRUCOES_BUILD_md_9c118bc7["INSTRUCOES_BUILD.md"]
+        mqtt_dashboard_googlestudio_instrucoes_build_ins_002ccffe("Instruções para Build e Instalação do M...<br/><small>INSTRUCOES_BUILD.md</small>")
+        mqtt_dashboard_googlestudio_instrucoes_build_sol_59563208("Solução de Problemas<br/><small>INSTRUCOES_BUILD.md</small>")
+        mqtt_dashboard_googlestudio_instrucoes_build_pas_3eb002dc("Passo 1: Instalar o JDK 21<br/><small>INSTRUCOES_BUILD.md</small>")
+        mqtt_dashboard_googlestudio_instrucoes_build_pas_af4e9eae("Passo 5: Testar e Monitorar<br/><small>INSTRUCOES_BUILD.md</small>")
+    end
+    readme_ai_studio_c37c72ac("AI Studio App")
+    app_build_gradle_kts_194fdeae("build.gradle.kts")
+    build_gradle_kts_96909481("build.gradle.kts")
+    app_build_gradle_kts_194fdeae -->|references| readme_ai_studio_c37c72ac
+    metadata_json_fa75ead3 -->|contains| mqtt_dashboard_googlestudio_metadata_name_40a90dd3
+    metadata_json_fa75ead3 -->|contains| mqtt_dashboard_googlestudio_metadata_description_ccd7c0f4
+    metadata_json_fa75ead3 -->|contains| mqtt_dashboard_googlestudio_metadata_requestfram_2b311b81
+    metadata_json_fa75ead3 -->|contains| mqtt_dashboard_googlestudio_metadata_majorcapabi_fd62ce49
+    mqtt_dashboard_googlestudio_graphify_guide_guia_381698c3 -->|contains| mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194
+    mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194 -->|contains| mqtt_dashboard_googlestudio_graphify_guide_atual_9943c19c
+    mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194 -->|contains| mqtt_dashboard_googlestudio_graphify_guide_recon_69242337
+    mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194 -->|contains| mqtt_dashboard_googlestudio_graphify_guide_pergu_22b83f44
+    mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194 -->|contains| mqtt_dashboard_googlestudio_graphify_guide_expli_ec4494d6
+    mqtt_dashboard_googlestudio_instrucoes_build_ins_002ccffe -->|contains| mqtt_dashboard_googlestudio_instrucoes_build_pas_3eb002dc
+    mqtt_dashboard_googlestudio_instrucoes_build_ins_002ccffe -->|contains| mqtt_dashboard_googlestudio_instrucoes_build_pas_af4e9eae
+    mqtt_dashboard_googlestudio_instrucoes_build_ins_002ccffe -->|contains| mqtt_dashboard_googlestudio_instrucoes_build_sol_59563208
+    %% Omitted for readability: 34 nodes, 0 edges
+    class mqtt_dashboard_googlestudio_graphify_guide_coman_52c16194 concept;
+    class mqtt_dashboard_googlestudio_graphify_guide_guia_381698c3 concept;
+    class mqtt_dashboard_googlestudio_graphify_guide_atual_9943c19c concept;
+    class mqtt_dashboard_googlestudio_graphify_guide_expli_ec4494d6 concept;
+    class mqtt_dashboard_googlestudio_graphify_guide_pergu_22b83f44 concept;
+    class mqtt_dashboard_googlestudio_graphify_guide_recon_69242337 concept;
+    class metadata_json_fa75ead3 function;
+    class mqtt_dashboard_googlestudio_metadata_name_40a90dd3 function;
+    class mqtt_dashboard_googlestudio_metadata_description_ccd7c0f4 function;
+    class mqtt_dashboard_googlestudio_metadata_requestfram_2b311b81 function;
+    class mqtt_dashboard_googlestudio_metadata_majorcapabi_fd62ce49 function;
+    class mqtt_dashboard_googlestudio_instrucoes_build_ins_002ccffe concept;
+    class mqtt_dashboard_googlestudio_instrucoes_build_sol_59563208 concept;
+    class mqtt_dashboard_googlestudio_instrucoes_build_pas_3eb002dc concept;
+    class mqtt_dashboard_googlestudio_instrucoes_build_pas_af4e9eae concept;
+    class readme_ai_studio_c37c72ac klass;
+    class app_build_gradle_kts_194fdeae function;
+    class build_gradle_kts_96909481 function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>INSTRUCOES_BUILD.md</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing INSTRUCOES_BUILD.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Instruções para Build e Instalação do MQTT Dashboard</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Instruções para Build e Instalação do MQTT Dashboard.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Correções Aplicadas</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Correções Aplicadas.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Pré-requisitos</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Pré-requisitos.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>Passo 1: Instalar o JDK 21</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Passo 1: Instalar o JDK 21.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>code:powershell (winget install EclipseAdoptium.Temurin.21.JDK)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (winget install EclipseAdoptium.Temurin.21.JDK).</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>code:powershell (java -version)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (java -version).</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>Passo 2: Instalar o Android SDK</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Passo 2: Instalar o Android SDK.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>code:powershell (# Criar diretório do SDK)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Criar diretório do SDK).</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>Passo 3: Buildar o APK</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Passo 3: Buildar o APK.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>code:powershell (# Definir JAVA_HOME (ajuste o nome da pasta se necessário))</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Definir JAVA_HOME (ajuste o nome da pasta se necessário)).</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>Passo 4: Instalar no Celular via USB</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Passo 4: Instalar no Celular via USB.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>code:powershell (# Verificar se o celular foi detectado)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Verificar se o celular foi detectado).</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>Passo 5: Testar e Monitorar</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Passo 5: Testar e Monitorar.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>code:powershell (# Ver logs em tempo real (filtrados pelo MQTT Engine))</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Ver logs em tempo real (filtrados pelo MQTT Engine)).</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>code:powershell (C:\Android\platform-tools\adb logcat -s MqttEngine NexusView)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (C:\Android\platform-tools\adb logcat -s MqttEngine NexusView).</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>Configuração Ideal para PC Fraco</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Configuração Ideal para PC Fraco.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>code:properties (org.gradle.jvmargs=-Xmx512m -XX:MaxMetaspaceSize=256m)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:properties (org.gradle.jvmargs=-Xmx512m -XX:MaxMetaspaceSize=256m).</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>Configuração do Broker no App</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Configuração do Broker no App.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>Solução de Problemas</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Solução de Problemas.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>&quot;A operação solicitada não pôde ser concluída devido a uma limitação do sistema&quot;</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing &quot;A operação solicitada não pôde ser concluída devido a uma limitação do sistema&quot;.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>Gradle build muito lento ou trava</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Gradle build muito lento ou trava.</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>APK não instala no celular</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing APK não instala no celular.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>code:powershell (# Se já existe uma versão instalada, use -r para substituir:)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Se já existe uma versão instalada, use -r para substituir:).</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>Conexão MQTT continua falhando</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Conexão MQTT continua falhando.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>code:powershell (# Capture o log completo do MQTT)</code><br><small style="color:var(--muted)">INSTRUCOES_BUILD.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing code:powershell (# Capture o log completo do MQTT).</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>GRAPHIFY_GUIDE.md</code><br><small style="color:var(--muted)">GRAPHIFY_GUIDE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing GRAPHIFY_GUIDE.md.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>Guia Graphify — MQTT Dashboard</code><br><small style="color:var(--muted)">GRAPHIFY_GUIDE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Guia Graphify — MQTT Dashboard.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>Comandos essenciais</code><br><small style="color:var(--muted)">GRAPHIFY_GUIDE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Comandos essenciais.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>Atualizar o grafo depois de mexer no código</code><br><small style="color:var(--muted)">GRAPHIFY_GUIDE.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Atualizar o grafo depois de mexer no código.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>INSTRUCOES_BUILD.md</code></td><td>26 nodes</td></tr>
+<tr><td><code>GRAPHIFY_GUIDE.md</code></td><td>18 nodes</td></tr>
+<tr><td><code>metadata.json</code></td><td>5 nodes</td></tr>
+<tr><td><code>app/build.gradle.kts</code></td><td>1 nodes</td></tr>
+<tr><td><code>build.gradle.kts</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x46, references x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 4. CLI & Skill Installers ====== -->
+<h2 id="cli-skills">4. CLI &amp; Skill Installers</h2>
+<p>CLI &amp; Skill Installers groups implementation around app, mqttenginekt, com, example, mostly in example/data/MqttEngine.kt, .opencode/opencode.json, .opencode/plugins/graphify.js. This section covers 28 nodes and 46 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: CLI &amp; Skill Installers (28 nodes, 46 edges)
+    data_mqttengine_mqttengine_b809888e("MqttEngine<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_connect_45a1c650("connect()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttreceivedmessage_f3917eb6("MqttReceivedMessage<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_close_7b201a0a("close()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_disconnect_106a59ab("disconnect()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_subscribe_e009972a("subscribe()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_publish_7521bf35("publish()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_handleinboundpacket_98336455("handleInboundPacket()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_startsimulationloop_69095ec6("startSimulationLoop()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_disconnectinternal_d3616312("disconnectInternal()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_unsubscribe_d16cce1d("unsubscribe()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_sendconnectpacket_9ee8efaa("sendConnectPacket()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_sendsubscribepacket_981a8608("sendSubscribePacket()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_sendpublishpacket_bbb96253("sendPublishPacket()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_startkeepaliveloop_d09f02d8("startKeepAliveLoop()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_readremaininglength_5387c89c("readRemainingLength()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_writeremaininglength_c730a582("writeRemainingLength()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttengine_stopsimulationloop_8bbb295b("stopSimulationLoop()<br/><small>example/data/MqttEngine.kt</small>")
+    data_mqttengine_mqttreceivedmessage_f3917eb6 -->|calls| data_mqttengine_mqttengine_publish_7521bf35
+    data_mqttengine_mqttreceivedmessage_f3917eb6 -->|calls| data_mqttengine_mqttengine_handleinboundpacket_98336455
+    data_mqttengine_mqttreceivedmessage_f3917eb6 -->|calls| data_mqttengine_mqttengine_startsimulationloop_69095ec6
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_connect_45a1c650
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_disconnect_106a59ab
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_close_7b201a0a
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_disconnectinternal_d3616312
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_publish_7521bf35
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_subscribe_e009972a
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_unsubscribe_d16cce1d
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_sendconnectpacket_9ee8efaa
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_sendsubscribepacket_981a8608
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_sendpublishpacket_bbb96253
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_startkeepaliveloop_d09f02d8
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_handleinboundpacket_98336455
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_readremaininglength_5387c89c
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_writeremaininglength_c730a582
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_startsimulationloop_69095ec6
+    data_mqttengine_mqttengine_b809888e -->|method| data_mqttengine_mqttengine_stopsimulationloop_8bbb295b
+    data_mqttengine_mqttengine_connect_45a1c650 -->|calls| data_mqttengine_mqttengine_stopsimulationloop_8bbb295b
+    data_mqttengine_mqttengine_connect_45a1c650 -->|calls| data_mqttengine_mqttengine_sendconnectpacket_9ee8efaa
+    data_mqttengine_mqttengine_connect_45a1c650 -->|calls| data_mqttengine_mqttengine_readremaininglength_5387c89c
+    data_mqttengine_mqttengine_connect_45a1c650 -->|calls| data_mqttengine_mqttengine_sendsubscribepacket_981a8608
+    data_mqttengine_mqttengine_connect_45a1c650 -->|calls| data_mqttengine_mqttengine_startkeepaliveloop_d09f02d8
+    %% Omitted for readability: 10 nodes, 11 edges
+    class data_mqttengine_mqttengine_b809888e klass;
+    class data_mqttengine_mqttengine_connect_45a1c650 function;
+    class data_mqttengine_mqttreceivedmessage_f3917eb6 klass;
+    class data_mqttengine_mqttengine_close_7b201a0a function;
+    class data_mqttengine_mqttengine_disconnect_106a59ab function;
+    class data_mqttengine_mqttengine_subscribe_e009972a function;
+    class data_mqttengine_mqttengine_publish_7521bf35 function;
+    class data_mqttengine_mqttengine_handleinboundpacket_98336455 function;
+    class data_mqttengine_mqttengine_startsimulationloop_69095ec6 function;
+    class data_mqttengine_mqttengine_disconnectinternal_d3616312 function;
+    class data_mqttengine_mqttengine_unsubscribe_d16cce1d function;
+    class data_mqttengine_mqttengine_sendconnectpacket_9ee8efaa function;
+    class data_mqttengine_mqttengine_sendsubscribepacket_981a8608 function;
+    class data_mqttengine_mqttengine_sendpublishpacket_bbb96253 function;
+    class data_mqttengine_mqttengine_startkeepaliveloop_d09f02d8 function;
+    class data_mqttengine_mqttengine_readremaininglength_5387c89c function;
+    class data_mqttengine_mqttengine_writeremaininglength_c730a582 function;
+    class data_mqttengine_mqttengine_stopsimulationloop_8bbb295b function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>MqttEngine.kt</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>MqttEngine.kt node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>MqttStatus</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>MqttStatus node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>MqttReceivedMessage</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>handleInboundPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>publish()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>startSimulationLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>MqttReceivedMessage node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>close()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>disconnect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br>+13 more</td>
+  <td>MqttEngine node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>.connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>disconnectInternal()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>handleInboundPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>readRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br>+4 more</td>
+  <td>.connect() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>.disconnect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>disconnectInternal()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.disconnect() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>.close()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>disconnectInternal()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>stopSimulationLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.close() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>.disconnectInternal()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>close()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>disconnect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br>+1 more</td>
+  <td><code>startSimulationLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.disconnectInternal() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>.publish()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttReceivedMessage</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>sendPublishPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.publish() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>.subscribe()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>sendSubscribePacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.subscribe() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>.unsubscribe()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.unsubscribe() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>.sendConnectPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>writeRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.sendConnectPacket() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>.sendSubscribePacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>subscribe()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>writeRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.sendSubscribePacket() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>.sendPublishPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>publish()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><code>writeRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>.sendPublishPacket() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>.startKeepAliveLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.startKeepAliveLoop() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>.handleInboundPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttReceivedMessage</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.handleInboundPacket() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>.readRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.readRemainingLength() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>.writeRemainingLength()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>sendConnectPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>sendPublishPacket()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br>+1 more</td>
+  <td>No direct outbound edge</td>
+  <td>.writeRemainingLength() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>.startSimulationLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>disconnectInternal()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttReceivedMessage</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.startSimulationLoop() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>.stopSimulationLoop()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>close()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>connect()</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small><br><code>MqttEngine</code><br><small style="color:var(--muted)">example/data/MqttEngine.kt</small></td>
+  <td>No direct outbound edge</td>
+  <td>.stopSimulationLoop() node in example/data/MqttEngine.kt.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>AndroidManifest.xml</code><br><small style="color:var(--muted)">src/main/AndroidManifest.xml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>AndroidManifest.xml node in src/main/AndroidManifest.xml.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>ic_launcher</code><br><small style="color:var(--muted)">res/mipmap-hdpi/ic_launcher.webp</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ic_launcher node in res/mipmap-hdpi/ic_launcher.webp.</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>ic_launcher_round</code><br><small style="color:var(--muted)">res/mipmap-hdpi/ic_launcher_round.webp</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ic_launcher_round node in res/mipmap-hdpi/ic_launcher_round.webp.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>ic_launcher (xhdpi)</code><br><small style="color:var(--muted)">res/mipmap-xhdpi/ic_launcher.webp</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ic_launcher (xhdpi) node in res/mipmap-xhdpi/ic_launcher.webp.</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>opencode.json</code><br><small style="color:var(--muted)">.opencode/opencode.json</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>opencode.json node in .opencode/opencode.json.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>plugin</code><br><small style="color:var(--muted)">.opencode/opencode.json</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>plugin node in .opencode/opencode.json.</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>graphify.js</code><br><small style="color:var(--muted)">.opencode/plugins/graphify.js</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Builds dependency relationships and graph data.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>GraphifyPlugin()</code><br><small style="color:var(--muted)">.opencode/plugins/graphify.js</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Builds dependency relationships and graph data.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>example/data/MqttEngine.kt</code></td><td>20 nodes</td></tr>
+<tr><td><code>.opencode/opencode.json</code></td><td>2 nodes</td></tr>
+<tr><td><code>.opencode/plugins/graphify.js</code></td><td>2 nodes</td></tr>
+<tr><td><code>src/main/AndroidManifest.xml</code></td><td>1 nodes</td></tr>
+<tr><td><code>res/mipmap-hdpi/ic_launcher.webp</code></td><td>1 nodes</td></tr>
+<tr><td><code>res/mipmap-hdpi/ic_launcher_round.webp</code></td><td>1 nodes</td></tr>
+<tr><td><code>res/mipmap-xhdpi/ic_launcher.webp</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: calls x19, method x16, contains x7, relates x3. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 5. Community 21 ====== -->
+<h2 id="community-21">5. Community 21</h2>
+<p>Community 21 groups implementation around task, planmd, fase, plan, mostly in task_plan.md. This section covers 10 nodes and 9 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 21 (10 nodes, 9 edges)
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362("Fases<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13("Task Plan: Correção da Aba Aparelho (De...<br/><small>task_plan.md</small>")
+    task_plan_md_73b73ba9("task_plan.md")
+    mqtt_dashboard_googlestudio_task_plan_problemas_8aec359e("Problemas<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_decis_es_9a9c97ce("Decisões<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_fase_1_adi_4b580aca("Fase 1: Adicionar campos de imagem ao W...<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_fase_2_imp_778c1812("Fase 2: Implementar image picker real<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_fase_3_cor_a751f9b2("Fase 3: Corrigir 'Salvar Dados'<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_fase_4_exi_74f907d2("Fase 4: Exibir imagens no Grid (Dashboard)<br/><small>task_plan.md</small>")
+    mqtt_dashboard_googlestudio_task_plan_fase_5_bui_789bbe25("Fase 5: Build e verificação<br/><small>task_plan.md</small>")
+    task_plan_md_73b73ba9 -->|contains| mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13
+    mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13 -->|contains| mqtt_dashboard_googlestudio_task_plan_problemas_8aec359e
+    mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13 -->|contains| mqtt_dashboard_googlestudio_task_plan_fases_5d058362
+    mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13 -->|contains| mqtt_dashboard_googlestudio_task_plan_decis_es_9a9c97ce
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362 -->|contains| mqtt_dashboard_googlestudio_task_plan_fase_1_adi_4b580aca
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362 -->|contains| mqtt_dashboard_googlestudio_task_plan_fase_2_imp_778c1812
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362 -->|contains| mqtt_dashboard_googlestudio_task_plan_fase_3_cor_a751f9b2
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362 -->|contains| mqtt_dashboard_googlestudio_task_plan_fase_4_exi_74f907d2
+    mqtt_dashboard_googlestudio_task_plan_fases_5d058362 -->|contains| mqtt_dashboard_googlestudio_task_plan_fase_5_bui_789bbe25
+    class mqtt_dashboard_googlestudio_task_plan_fases_5d058362 concept;
+    class mqtt_dashboard_googlestudio_task_plan_task_plan_df2d8a13 concept;
+    class task_plan_md_73b73ba9 concept;
+    class mqtt_dashboard_googlestudio_task_plan_problemas_8aec359e concept;
+    class mqtt_dashboard_googlestudio_task_plan_decis_es_9a9c97ce concept;
+    class mqtt_dashboard_googlestudio_task_plan_fase_1_adi_4b580aca concept;
+    class mqtt_dashboard_googlestudio_task_plan_fase_2_imp_778c1812 concept;
+    class mqtt_dashboard_googlestudio_task_plan_fase_3_cor_a751f9b2 concept;
+    class mqtt_dashboard_googlestudio_task_plan_fase_4_exi_74f907d2 concept;
+    class mqtt_dashboard_googlestudio_task_plan_fase_5_bui_789bbe25 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>task_plan.md</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing task_plan.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Task Plan: Correção da Aba Aparelho (DeviceConfigScreen)</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Task Plan: Correção da Aba Aparelho (DeviceConfigScreen).</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Problemas</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Problemas.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>Fases</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fases.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>Fase 1: Adicionar campos de imagem ao WidgetConfig</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fase 1: Adicionar campos de imagem ao WidgetConfig.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>Fase 2: Implementar image picker real</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fase 2: Implementar image picker real.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>Fase 3: Corrigir &quot;Salvar Dados&quot;</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fase 3: Corrigir &quot;Salvar Dados&quot;.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>Fase 4: Exibir imagens no Grid (Dashboard)</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fase 4: Exibir imagens no Grid (Dashboard).</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>Fase 5: Build e verificação</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Fase 5: Build e verificação.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>Decisões</code><br><small style="color:var(--muted)">task_plan.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Decisões.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>task_plan.md</code></td><td>10 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x9. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 6. Community 23 ====== -->
+<h2 id="community-23">6. Community 23</h2>
+<p>Community 23 groups implementation around readmemd, run, deploy, your, mostly in README.md. This section covers 3 nodes and 2 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 23 (3 nodes, 2 edges)
+    readme_md_eeb98ce0("README.md")
+    mqtt_dashboard_googlestudio_readme_run_and_deplo_06faac4d("Run and deploy your AI Studio app<br/><small>README.md</small>")
+    mqtt_dashboard_googlestudio_readme_run_locally_b684870d("Run Locally<br/><small>README.md</small>")
+    readme_md_eeb98ce0 -->|contains| mqtt_dashboard_googlestudio_readme_run_and_deplo_06faac4d
+    mqtt_dashboard_googlestudio_readme_run_and_deplo_06faac4d -->|contains| mqtt_dashboard_googlestudio_readme_run_locally_b684870d
+    class readme_md_eeb98ce0 concept;
+    class mqtt_dashboard_googlestudio_readme_run_and_deplo_06faac4d concept;
+    class mqtt_dashboard_googlestudio_readme_run_locally_b684870d concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>README.md</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing README.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>Run and deploy your AI Studio app</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Run and deploy your AI Studio app.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>Run Locally</code><br><small style="color:var(--muted)">README.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing Run Locally.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>README.md</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x2. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 7. Community 24 ====== -->
+<h2 id="community-24">7. Community 24</h2>
+<p>Community 24 groups implementation around agentsmd, graphify, mostly in AGENTS.md. This section covers 2 nodes and 1 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 24 (2 nodes, 1 edges)
+    agents_md_1f169a2a("AGENTS.md")
+    mqtt_dashboard_googlestudio_agents_graphify_9ac28d88("graphify<br/><small>AGENTS.md</small>")
+    agents_md_1f169a2a -->|contains| mqtt_dashboard_googlestudio_agents_graphify_9ac28d88
+    class agents_md_1f169a2a concept;
+    class mqtt_dashboard_googlestudio_agents_graphify_9ac28d88 concept;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>AGENTS.md</code><br><small style="color:var(--muted)">AGENTS.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing AGENTS.md.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>graphify</code><br><small style="color:var(--muted)">AGENTS.md</small></td>
+  <td><span class="tag tag-func">Concept</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Documentation node describing graphify.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>AGENTS.md</code></td><td>2 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 8. Community 15 ====== -->
+<h2 id="community-15">8. Community 15</h2>
+<p>Community 15 groups implementation around settingsgradlekts, mostly in settings.gradle.kts. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 15 (1 nodes, 0 edges)
+    settings_gradle_kts_e0ad1c77("settings.gradle.kts")
+    class settings_gradle_kts_e0ad1c77 function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>settings.gradle.kts</code><br><small style="color:var(--muted)">settings.gradle.kts</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>settings.gradle.kts node in settings.gradle.kts.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>settings.gradle.kts</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 9. Community 16 ====== -->
+<h2 id="community-16">9. Community 16</h2>
+<p>Community 16 groups implementation around colorkt, app, com, example, mostly in ui/theme/Color.kt. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 16 (1 nodes, 0 edges)
+    app_src_main_java_com_example_ui_theme_color_kt_34e556ea("Color.kt")
+    class app_src_main_java_com_example_ui_theme_color_kt_34e556ea klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Color.kt</code><br><small style="color:var(--muted)">ui/theme/Color.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Color.kt node in ui/theme/Color.kt.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>ui/theme/Color.kt</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 10. Community 17 ====== -->
+<h2 id="community-17">10. Community 17</h2>
+<p>Community 17 groups implementation around typekt, app, com, example, mostly in ui/theme/Type.kt. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 17 (1 nodes, 0 edges)
+    app_src_main_java_com_example_ui_theme_type_kt_38acbccf("Type.kt")
+    class app_src_main_java_com_example_ui_theme_type_kt_38acbccf klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>Type.kt</code><br><small style="color:var(--muted)">ui/theme/Type.kt</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Type.kt node in ui/theme/Type.kt.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>ui/theme/Type.kt</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 11. Community 18 ====== -->
+<h2 id="community-18">11. Community 18</h2>
+<p>Community 18 groups implementation around gradleproperties, mostly in gradle.properties. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 18 (1 nodes, 0 edges)
+    instrucoes_build_gradle_properties_e9481f18("gradle.properties")
+    class instrucoes_build_gradle_properties_e9481f18 function;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>gradle.properties</code><br><small style="color:var(--muted)">gradle.properties</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>gradle.properties node in gradle.properties.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>gradle.properties</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 12. Community 19 ====== -->
+<h2 id="community-19">12. Community 19</h2>
+<p>Community 19 groups implementation around iot, logo, app, res, mostly in res/drawable/img_iot_logo.png. This section covers 1 nodes and 0 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: Community 19 (1 nodes, 0 edges)
+    img_iot_logo_89919ede("IoT Logo<br/><small>res/drawable/img_iot_logo.png</small>")
+    class img_iot_logo_89919ede klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>IoT Logo</code><br><small style="color:var(--muted)">res/drawable/img_iot_logo.png</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>IoT Logo node in res/drawable/img_iot_logo.png.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>res/drawable/img_iot_logo.png</code></td><td>1 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: No high-confidence call edges detected. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<h2 id="stats">Project Statistics</h2>
+
+<div class="grid">
+  <div class="card">
+    <h4>Graph</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>Nodes</td><td>227</td></tr>
+      <tr><td>Edges</td><td>316</td></tr>
+      <tr><td>Hyperedges</td><td>0</td></tr>
+      <tr><td>Communities</td><td>26</td></tr>
+      <tr><td>Documented Sections</td><td>11</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Edge Confidence</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><td>EXTRACTED</td><td>287</td></tr>
+      <tr><td>INFERRED</td><td>29</td></tr>
+      <tr><td>AMBIGUOUS</td><td>0</td></tr>
+    </table>
+  </div>
+</div>
+
+<div style="text-align:center; padding:40px 0; color: var(--muted); font-size:0.9rem;">
+  <p>MQTT-Dashboard-GoogleStudio — Architecture Documentation</p>
+  <p>Generated: 2026-05-23 03:54 UTC · graphify callflow-html</p>
+</div>
+
+</div><!-- .container -->
+
+<script>
+(function () {
+  const mermaidConfig = {
+    startOnLoad: false,
+    theme: 'dark',
+    securityLevel: 'loose',
+    flowchart: { htmlLabels: true, useMaxWidth: true },
+    themeVariables: {
+      primaryColor: '#1e293b',
+      primaryTextColor: '#e2e8f0',
+      primaryBorderColor: '#38bdf8',
+      secondaryColor: '#0f172a',
+      tertiaryColor: '#334155',
+      lineColor: '#64748b',
+      textColor: '#e2e8f0',
+    }
+  };
+
+  mermaid.initialize(mermaidConfig);
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function enhanceMermaidDiagrams() {
+    document.querySelectorAll('.mermaid').forEach((container) => {
+      if (container.dataset.zoomReady === 'true') return;
+      const svg = container.querySelector('svg');
+      if (!svg) return;
+
+      container.dataset.zoomReady = 'true';
+      container.classList.add('is-enhanced');
+
+      const viewport = document.createElement('div');
+      viewport.className = 'mermaid-viewport';
+      svg.parentNode.insertBefore(viewport, svg);
+      viewport.appendChild(svg);
+
+      const toolbar = document.createElement('div');
+      toolbar.className = 'mermaid-toolbar';
+      toolbar.innerHTML = [
+        '<button type="button" data-action="zoom-out" title="Zoom out">-</button>',
+        '<span class="zoom-level" data-role="level">100%</span>',
+        '<button type="button" data-action="zoom-in" title="Zoom in">+</button>',
+        '<button type="button" data-action="fit" title="Fit width">Fit</button>',
+        '<button type="button" data-action="reset" title="Reset view">Reset</button>'
+      ].join('');
+      container.insertBefore(toolbar, viewport);
+
+      const state = { scale: 1, x: 0, y: 0, dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 };
+      const level = toolbar.querySelector('[data-role="level"]');
+
+      function applyTransform() {
+        svg.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
+        level.textContent = `${Math.round(state.scale * 100)}%`;
+      }
+
+      function zoomBy(delta) {
+        state.scale = clamp(state.scale + delta, 0.25, 3);
+        applyTransform();
+      }
+
+      function reset() {
+        state.scale = 1;
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      function fitWidth() {
+        const rawWidth = svg.viewBox && svg.viewBox.baseVal && svg.viewBox.baseVal.width
+          ? svg.viewBox.baseVal.width
+          : svg.getBoundingClientRect().width / state.scale;
+        if (!rawWidth) {
+          reset();
+          return;
+        }
+        state.scale = clamp((viewport.clientWidth - 48) / rawWidth, 0.25, 1.4);
+        state.x = 0;
+        state.y = 0;
+        applyTransform();
+      }
+
+      toolbar.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-action]');
+        if (!button) return;
+        const action = button.dataset.action;
+        if (action === 'zoom-in') zoomBy(0.15);
+        if (action === 'zoom-out') zoomBy(-0.15);
+        if (action === 'fit') fitWidth();
+        if (action === 'reset') reset();
+      });
+
+      viewport.addEventListener('wheel', (event) => {
+        if (!event.ctrlKey && !event.metaKey) return;
+        event.preventDefault();
+        zoomBy(event.deltaY < 0 ? 0.1 : -0.1);
+      }, { passive: false });
+
+      viewport.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        state.dragging = true;
+        state.startX = event.clientX;
+        state.startY = event.clientY;
+        state.originX = state.x;
+        state.originY = state.y;
+        viewport.classList.add('is-dragging');
+        viewport.setPointerCapture(event.pointerId);
+      });
+
+      viewport.addEventListener('pointermove', (event) => {
+        if (!state.dragging) return;
+        state.x = state.originX + event.clientX - state.startX;
+        state.y = state.originY + event.clientY - state.startY;
+        applyTransform();
+      });
+
+      function endDrag(event) {
+        if (!state.dragging) return;
+        state.dragging = false;
+        viewport.classList.remove('is-dragging');
+        if (viewport.hasPointerCapture(event.pointerId)) {
+          viewport.releasePointerCapture(event.pointerId);
+        }
+      }
+
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+      applyTransform();
+    });
+  }
+
+  function renderMermaid() {
+    const result = mermaid.run
+      ? mermaid.run({ querySelector: '.mermaid' })
+      : Promise.resolve();
+    Promise.resolve(result)
+      .then(enhanceMermaidDiagrams)
+      .catch((error) => {
+        console.error('Mermaid render failed:', error);
+        enhanceMermaidDiagrams();
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderMermaid);
+  } else {
+    renderMermaid();
+  }
+})();
+</script>
+
+</body>
+</html>
