@@ -1,0 +1,5277 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "build.gradle.kts",
+      "source_location": "L1",
+      "id": "build_gradle_kts",
+      "community": 14,
+      "norm_label": "build.gradle.kts"
+    },
+    {
+      "label": "metadata.json",
+      "file_type": "code",
+      "source_file": "metadata.json",
+      "source_location": "L1",
+      "id": "metadata_json",
+      "community": 5,
+      "norm_label": "metadata.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "metadata.json",
+      "source_location": "L2",
+      "id": "mqtt_dashboard_googlestudio_metadata_name",
+      "community": 5,
+      "norm_label": "name"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "metadata.json",
+      "source_location": "L3",
+      "id": "mqtt_dashboard_googlestudio_metadata_description",
+      "community": 5,
+      "norm_label": "description"
+    },
+    {
+      "label": "requestFramePermissions",
+      "file_type": "code",
+      "source_file": "metadata.json",
+      "source_location": "L4",
+      "id": "mqtt_dashboard_googlestudio_metadata_requestframepermissions",
+      "community": 5,
+      "norm_label": "requestframepermissions"
+    },
+    {
+      "label": "majorCapabilities",
+      "file_type": "code",
+      "source_file": "metadata.json",
+      "source_location": "L5",
+      "id": "mqtt_dashboard_googlestudio_metadata_majorcapabilities",
+      "community": 5,
+      "norm_label": "majorcapabilities"
+    },
+    {
+      "label": "settings.gradle.kts",
+      "file_type": "code",
+      "source_file": "settings.gradle.kts",
+      "source_location": "L1",
+      "id": "settings_gradle_kts",
+      "community": 15,
+      "norm_label": "settings.gradle.kts"
+    },
+    {
+      "label": "build.gradle.kts",
+      "file_type": "code",
+      "source_file": "app/build.gradle.kts",
+      "source_location": "L1",
+      "id": "app_build_gradle_kts",
+      "community": 9,
+      "norm_label": "build.gradle.kts"
+    },
+    {
+      "label": "ExampleInstrumentedTest.kt",
+      "file_type": "code",
+      "source_file": "app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt",
+      "source_location": "L1",
+      "id": "app_src_androidtest_java_com_example_exampleinstrumentedtest_kt",
+      "community": 10,
+      "norm_label": "exampleinstrumentedtest.kt"
+    },
+    {
+      "label": "ExampleInstrumentedTest",
+      "file_type": "code",
+      "source_file": "app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt",
+      "source_location": "L14",
+      "id": "example_exampleinstrumentedtest_exampleinstrumentedtest",
+      "community": 10,
+      "norm_label": "exampleinstrumentedtest"
+    },
+    {
+      "label": ".useAppContext()",
+      "file_type": "code",
+      "source_file": "app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt",
+      "source_location": "L16",
+      "id": "example_exampleinstrumentedtest_exampleinstrumentedtest_useappcontext",
+      "community": 10,
+      "norm_label": ".useappcontext()"
+    },
+    {
+      "label": "MainActivity.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_mainactivity_kt",
+      "community": 0,
+      "norm_label": "mainactivity.kt"
+    },
+    {
+      "label": "MainActivity",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L80",
+      "id": "example_mainactivity_mainactivity",
+      "community": 0,
+      "norm_label": "mainactivity"
+    },
+    {
+      "label": ".onCreate()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L81",
+      "id": "example_mainactivity_mainactivity_oncreate",
+      "community": 0,
+      "norm_label": ".oncreate()"
+    },
+    {
+      "label": "SplashScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L92",
+      "id": "example_mainactivity_splashscreen",
+      "community": 0,
+      "norm_label": "splashscreen()"
+    },
+    {
+      "label": "AppScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L254",
+      "id": "example_mainactivity_appscreen",
+      "community": 0,
+      "norm_label": "appscreen()"
+    },
+    {
+      "label": "TopHeader()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L410",
+      "id": "example_mainactivity_topheader",
+      "community": 0,
+      "norm_label": "topheader()"
+    },
+    {
+      "label": "BottomNavigationBar()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L513",
+      "id": "example_mainactivity_bottomnavigationbar",
+      "community": 0,
+      "norm_label": "bottomnavigationbar()"
+    },
+    {
+      "label": "loadWidgetBitmap()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L561",
+      "id": "example_mainactivity_loadwidgetbitmap",
+      "community": 0,
+      "norm_label": "loadwidgetbitmap()"
+    },
+    {
+      "label": "DashboardScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L579",
+      "id": "example_mainactivity_dashboardscreen",
+      "community": 0,
+      "norm_label": "dashboardscreen()"
+    },
+    {
+      "label": "LogScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L767",
+      "id": "example_mainactivity_logscreen",
+      "community": 0,
+      "norm_label": "logscreen()"
+    },
+    {
+      "label": "TelemetryStat()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L822",
+      "id": "example_mainactivity_telemetrystat",
+      "community": 0,
+      "norm_label": "telemetrystat()"
+    },
+    {
+      "label": "MetricsScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L831",
+      "id": "example_mainactivity_metricsscreen",
+      "community": 0,
+      "norm_label": "metricsscreen()"
+    },
+    {
+      "label": "EditGaugeDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1115",
+      "id": "example_mainactivity_editgaugedialog",
+      "community": 0,
+      "norm_label": "editgaugedialog()"
+    },
+    {
+      "label": "AddTelemetrySourceDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1184",
+      "id": "example_mainactivity_addtelemetrysourcedialog",
+      "community": 0,
+      "norm_label": "addtelemetrysourcedialog()"
+    },
+    {
+      "label": "DeviceConfigScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1284",
+      "id": "example_mainactivity_deviceconfigscreen",
+      "community": 0,
+      "norm_label": "deviceconfigscreen()"
+    },
+    {
+      "label": "VoiceScreen()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1644",
+      "id": "example_mainactivity_voicescreen",
+      "community": 0,
+      "norm_label": "voicescreen()"
+    },
+    {
+      "label": "DynamicWidgetIcon()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1773",
+      "id": "example_mainactivity_dynamicwidgeticon",
+      "community": 0,
+      "norm_label": "dynamicwidgeticon()"
+    },
+    {
+      "label": "VectorIconHub()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1786",
+      "id": "example_mainactivity_vectoriconhub",
+      "community": 0,
+      "norm_label": "vectoriconhub()"
+    },
+    {
+      "label": "VectorIconMic()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1806",
+      "id": "example_mainactivity_vectoriconmic",
+      "community": 0,
+      "norm_label": "vectoriconmic()"
+    },
+    {
+      "label": "BrokerSettingsDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1838",
+      "id": "example_mainactivity_brokersettingsdialog",
+      "community": 0,
+      "norm_label": "brokersettingsdialog()"
+    },
+    {
+      "label": "AddWidgetDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2070",
+      "id": "example_mainactivity_addwidgetdialog",
+      "community": 0,
+      "norm_label": "addwidgetdialog()"
+    },
+    {
+      "label": "EditWidgetDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2249",
+      "id": "example_mainactivity_editwidgetdialog",
+      "community": 0,
+      "norm_label": "editwidgetdialog()"
+    },
+    {
+      "label": "Database.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_data_database_kt",
+      "community": 1,
+      "norm_label": "database.kt"
+    },
+    {
+      "label": "MqttBrokerConfig",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L10",
+      "id": "data_database_mqttbrokerconfig",
+      "community": 1,
+      "norm_label": "mqttbrokerconfig"
+    },
+    {
+      "label": "MqttSubscription",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L26",
+      "id": "data_database_mqttsubscription",
+      "community": 1,
+      "norm_label": "mqttsubscription"
+    },
+    {
+      "label": "MqttMessageLog",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L33",
+      "id": "data_database_mqttmessagelog",
+      "community": 1,
+      "norm_label": "mqttmessagelog"
+    },
+    {
+      "label": "TelemetrySource",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L43",
+      "id": "data_database_telemetrysource",
+      "community": 1,
+      "norm_label": "telemetrysource"
+    },
+    {
+      "label": "WidgetConfig",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L52",
+      "id": "data_database_widgetconfig",
+      "community": 4,
+      "norm_label": "widgetconfig"
+    },
+    {
+      "label": "MqttDao",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L73",
+      "id": "data_database_mqttdao",
+      "community": 2,
+      "norm_label": "mqttdao"
+    },
+    {
+      "label": ".getBrokerConfigFlow()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L76",
+      "id": "data_database_mqttdao_getbrokerconfigflow",
+      "community": 2,
+      "norm_label": ".getbrokerconfigflow()"
+    },
+    {
+      "label": ".getBrokerConfig()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L79",
+      "id": "data_database_mqttdao_getbrokerconfig",
+      "community": 2,
+      "norm_label": ".getbrokerconfig()"
+    },
+    {
+      "label": ".saveBrokerConfig()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L82",
+      "id": "data_database_mqttdao_savebrokerconfig",
+      "community": 2,
+      "norm_label": ".savebrokerconfig()"
+    },
+    {
+      "label": ".getAllSubscriptionsFlow()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L86",
+      "id": "data_database_mqttdao_getallsubscriptionsflow",
+      "community": 2,
+      "norm_label": ".getallsubscriptionsflow()"
+    },
+    {
+      "label": ".getAllSubscriptions()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L89",
+      "id": "data_database_mqttdao_getallsubscriptions",
+      "community": 2,
+      "norm_label": ".getallsubscriptions()"
+    },
+    {
+      "label": ".addSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L92",
+      "id": "data_database_mqttdao_addsubscription",
+      "community": 2,
+      "norm_label": ".addsubscription()"
+    },
+    {
+      "label": ".removeSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L95",
+      "id": "data_database_mqttdao_removesubscription",
+      "community": 2,
+      "norm_label": ".removesubscription()"
+    },
+    {
+      "label": ".getAllMessageLogsFlow()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L99",
+      "id": "data_database_mqttdao_getallmessagelogsflow",
+      "community": 2,
+      "norm_label": ".getallmessagelogsflow()"
+    },
+    {
+      "label": ".insertMessageLog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L102",
+      "id": "data_database_mqttdao_insertmessagelog",
+      "community": 2,
+      "norm_label": ".insertmessagelog()"
+    },
+    {
+      "label": ".clearMessageLogs()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L105",
+      "id": "data_database_mqttdao_clearmessagelogs",
+      "community": 2,
+      "norm_label": ".clearmessagelogs()"
+    },
+    {
+      "label": ".getMaxPosition()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L108",
+      "id": "data_database_mqttdao_getmaxposition",
+      "community": 2,
+      "norm_label": ".getmaxposition()"
+    },
+    {
+      "label": ".updateWidgetPosition()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L111",
+      "id": "data_database_mqttdao_updatewidgetposition",
+      "community": 2,
+      "norm_label": ".updatewidgetposition()"
+    },
+    {
+      "label": ".getAllWidgetsFlow()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L115",
+      "id": "data_database_mqttdao_getallwidgetsflow",
+      "community": 2,
+      "norm_label": ".getallwidgetsflow()"
+    },
+    {
+      "label": ".getWidgetsCount()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L118",
+      "id": "data_database_mqttdao_getwidgetscount",
+      "community": 2,
+      "norm_label": ".getwidgetscount()"
+    },
+    {
+      "label": ".getAllWidgets()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L121",
+      "id": "data_database_mqttdao_getallwidgets",
+      "community": 2,
+      "norm_label": ".getallwidgets()"
+    },
+    {
+      "label": ".insertWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L124",
+      "id": "data_database_mqttdao_insertwidget",
+      "community": 2,
+      "norm_label": ".insertwidget()"
+    },
+    {
+      "label": ".updateWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L127",
+      "id": "data_database_mqttdao_updatewidget",
+      "community": 2,
+      "norm_label": ".updatewidget()"
+    },
+    {
+      "label": ".deleteWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L130",
+      "id": "data_database_mqttdao_deletewidget",
+      "community": 2,
+      "norm_label": ".deletewidget()"
+    },
+    {
+      "label": ".updateWidgetValueByTopic()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L133",
+      "id": "data_database_mqttdao_updatewidgetvaluebytopic",
+      "community": 1,
+      "norm_label": ".updatewidgetvaluebytopic()"
+    },
+    {
+      "label": ".updateWidgetValueBySubscribeTopic()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L136",
+      "id": "data_database_mqttdao_updatewidgetvaluebysubscribetopic",
+      "community": 2,
+      "norm_label": ".updatewidgetvaluebysubscribetopic()"
+    },
+    {
+      "label": ".getAllTelemetrySourcesFlow()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L140",
+      "id": "data_database_mqttdao_getalltelemetrysourcesflow",
+      "community": 2,
+      "norm_label": ".getalltelemetrysourcesflow()"
+    },
+    {
+      "label": ".insertTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L143",
+      "id": "data_database_mqttdao_inserttelemetrysource",
+      "community": 2,
+      "norm_label": ".inserttelemetrysource()"
+    },
+    {
+      "label": ".deleteTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L146",
+      "id": "data_database_mqttdao_deletetelemetrysource",
+      "community": 2,
+      "norm_label": ".deletetelemetrysource()"
+    },
+    {
+      "label": "AppDatabase",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L152",
+      "id": "data_database_appdatabase",
+      "community": 1,
+      "norm_label": "appdatabase"
+    },
+    {
+      "label": "migrate()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L171",
+      "id": "data_database_migrate",
+      "community": 1,
+      "norm_label": "migrate()"
+    },
+    {
+      "label": "getDatabase()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L207",
+      "id": "data_database_getdatabase",
+      "community": 1,
+      "norm_label": "getdatabase()"
+    },
+    {
+      "label": "MqttEngine.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_data_mqttengine_kt",
+      "community": 3,
+      "norm_label": "mqttengine.kt"
+    },
+    {
+      "label": "MqttStatus",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L15",
+      "id": "data_mqttengine_mqttstatus",
+      "community": 3,
+      "norm_label": "mqttstatus"
+    },
+    {
+      "label": "MqttReceivedMessage",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L19",
+      "id": "data_mqttengine_mqttreceivedmessage",
+      "community": 3,
+      "norm_label": "mqttreceivedmessage"
+    },
+    {
+      "label": "MqttEngine",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L21",
+      "id": "data_mqttengine_mqttengine",
+      "community": 3,
+      "norm_label": "mqttengine"
+    },
+    {
+      "label": ".connect()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L46",
+      "id": "data_mqttengine_mqttengine_connect",
+      "community": 3,
+      "norm_label": ".connect()"
+    },
+    {
+      "label": ".disconnect()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L146",
+      "id": "data_mqttengine_mqttengine_disconnect",
+      "community": 3,
+      "norm_label": ".disconnect()"
+    },
+    {
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L153",
+      "id": "data_mqttengine_mqttengine_close",
+      "community": 3,
+      "norm_label": ".close()"
+    },
+    {
+      "label": ".disconnectInternal()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L171",
+      "id": "data_mqttengine_mqttengine_disconnectinternal",
+      "community": 3,
+      "norm_label": ".disconnectinternal()"
+    },
+    {
+      "label": ".publish()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L189",
+      "id": "data_mqttengine_mqttengine_publish",
+      "community": 3,
+      "norm_label": ".publish()"
+    },
+    {
+      "label": ".subscribe()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L212",
+      "id": "data_mqttengine_mqttengine_subscribe",
+      "community": 3,
+      "norm_label": ".subscribe()"
+    },
+    {
+      "label": ".unsubscribe()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L229",
+      "id": "data_mqttengine_mqttengine_unsubscribe",
+      "community": 3,
+      "norm_label": ".unsubscribe()"
+    },
+    {
+      "label": ".sendConnectPacket()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L235",
+      "id": "data_mqttengine_mqttengine_sendconnectpacket",
+      "community": 3,
+      "norm_label": ".sendconnectpacket()"
+    },
+    {
+      "label": ".sendSubscribePacket()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L299",
+      "id": "data_mqttengine_mqttengine_sendsubscribepacket",
+      "community": 3,
+      "norm_label": ".sendsubscribepacket()"
+    },
+    {
+      "label": ".sendPublishPacket()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L320",
+      "id": "data_mqttengine_mqttengine_sendpublishpacket",
+      "community": 3,
+      "norm_label": ".sendpublishpacket()"
+    },
+    {
+      "label": ".startKeepAliveLoop()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L338",
+      "id": "data_mqttengine_mqttengine_startkeepaliveloop",
+      "community": 3,
+      "norm_label": ".startkeepaliveloop()"
+    },
+    {
+      "label": ".handleInboundPacket()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L357",
+      "id": "data_mqttengine_mqttengine_handleinboundpacket",
+      "community": 3,
+      "norm_label": ".handleinboundpacket()"
+    },
+    {
+      "label": ".readRemainingLength()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L380",
+      "id": "data_mqttengine_mqttengine_readremaininglength",
+      "community": 3,
+      "norm_label": ".readremaininglength()"
+    },
+    {
+      "label": ".writeRemainingLength()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L393",
+      "id": "data_mqttengine_mqttengine_writeremaininglength",
+      "community": 3,
+      "norm_label": ".writeremaininglength()"
+    },
+    {
+      "label": ".startSimulationLoop()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L407",
+      "id": "data_mqttengine_mqttengine_startsimulationloop",
+      "community": 3,
+      "norm_label": ".startsimulationloop()"
+    },
+    {
+      "label": ".stopSimulationLoop()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L496",
+      "id": "data_mqttengine_mqttengine_stopsimulationloop",
+      "community": 3,
+      "norm_label": ".stopsimulationloop()"
+    },
+    {
+      "label": "NexusRepository.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_data_nexusrepository_kt",
+      "community": 1,
+      "norm_label": "nexusrepository.kt"
+    },
+    {
+      "label": "NexusRepository",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L7",
+      "id": "data_nexusrepository_nexusrepository",
+      "community": 1,
+      "norm_label": "nexusrepository"
+    },
+    {
+      "label": ".getBrokerConfig()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L14",
+      "id": "data_nexusrepository_nexusrepository_getbrokerconfig",
+      "community": 1,
+      "norm_label": ".getbrokerconfig()"
+    },
+    {
+      "label": ".saveBrokerConfig()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L20",
+      "id": "data_nexusrepository_nexusrepository_savebrokerconfig",
+      "community": 1,
+      "norm_label": ".savebrokerconfig()"
+    },
+    {
+      "label": ".getAllSubscriptions()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L27",
+      "id": "data_nexusrepository_nexusrepository_getallsubscriptions",
+      "community": 1,
+      "norm_label": ".getallsubscriptions()"
+    },
+    {
+      "label": ".addSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L31",
+      "id": "data_nexusrepository_nexusrepository_addsubscription",
+      "community": 1,
+      "norm_label": ".addsubscription()"
+    },
+    {
+      "label": ".removeSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L35",
+      "id": "data_nexusrepository_nexusrepository_removesubscription",
+      "community": 1,
+      "norm_label": ".removesubscription()"
+    },
+    {
+      "label": ".insertMessageLog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L42",
+      "id": "data_nexusrepository_nexusrepository_insertmessagelog",
+      "community": 1,
+      "norm_label": ".insertmessagelog()"
+    },
+    {
+      "label": ".clearMessageLogs()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L50",
+      "id": "data_nexusrepository_nexusrepository_clearmessagelogs",
+      "community": 1,
+      "norm_label": ".clearmessagelogs()"
+    },
+    {
+      "label": ".initializeDefaultWidgetsIfNeeded()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L57",
+      "id": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "community": 1,
+      "norm_label": ".initializedefaultwidgetsifneeded()"
+    },
+    {
+      "label": ".insertWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L120",
+      "id": "data_nexusrepository_nexusrepository_insertwidget",
+      "community": 1,
+      "norm_label": ".insertwidget()"
+    },
+    {
+      "label": ".updateWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L124",
+      "id": "data_nexusrepository_nexusrepository_updatewidget",
+      "community": 1,
+      "norm_label": ".updatewidget()"
+    },
+    {
+      "label": ".deleteWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L128",
+      "id": "data_nexusrepository_nexusrepository_deletewidget",
+      "community": 1,
+      "norm_label": ".deletewidget()"
+    },
+    {
+      "label": ".updateWidgetValue()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L132",
+      "id": "data_nexusrepository_nexusrepository_updatewidgetvalue",
+      "community": 1,
+      "norm_label": ".updatewidgetvalue()"
+    },
+    {
+      "label": ".updateWidgetValueBySubscribeTopic()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L136",
+      "id": "data_nexusrepository_nexusrepository_updatewidgetvaluebysubscribetopic",
+      "community": 1,
+      "norm_label": ".updatewidgetvaluebysubscribetopic()"
+    },
+    {
+      "label": ".getMaxPosition()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L140",
+      "id": "data_nexusrepository_nexusrepository_getmaxposition",
+      "community": 1,
+      "norm_label": ".getmaxposition()"
+    },
+    {
+      "label": ".updateWidgetPosition()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L144",
+      "id": "data_nexusrepository_nexusrepository_updatewidgetposition",
+      "community": 1,
+      "norm_label": ".updatewidgetposition()"
+    },
+    {
+      "label": ".addTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L151",
+      "id": "data_nexusrepository_nexusrepository_addtelemetrysource",
+      "community": 1,
+      "norm_label": ".addtelemetrysource()"
+    },
+    {
+      "label": ".removeTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L155",
+      "id": "data_nexusrepository_nexusrepository_removetelemetrysource",
+      "community": 1,
+      "norm_label": ".removetelemetrysource()"
+    },
+    {
+      "label": "VoiceCommandManager.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_data_voicecommandmanager_kt",
+      "community": 7,
+      "norm_label": "voicecommandmanager.kt"
+    },
+    {
+      "label": "VoiceCommandManager",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L7",
+      "id": "data_voicecommandmanager_voicecommandmanager",
+      "community": 7,
+      "norm_label": "voicecommandmanager"
+    },
+    {
+      "label": "CommandResult",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L9",
+      "id": "data_voicecommandmanager_commandresult",
+      "community": 7,
+      "norm_label": "commandresult"
+    },
+    {
+      "label": ".processCommand()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L17",
+      "id": "data_voicecommandmanager_voicecommandmanager_processcommand",
+      "community": 7,
+      "norm_label": ".processcommand()"
+    },
+    {
+      "label": "NexusViewModel.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_ui_nexusviewmodel_kt",
+      "community": 4,
+      "norm_label": "nexusviewmodel.kt"
+    },
+    {
+      "label": "NexusViewModel",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L14",
+      "id": "ui_nexusviewmodel_nexusviewmodel",
+      "community": 4,
+      "norm_label": "nexusviewmodel"
+    },
+    {
+      "label": ".toggleConnection()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L99",
+      "id": "ui_nexusviewmodel_nexusviewmodel_toggleconnection",
+      "community": 4,
+      "norm_label": ".toggleconnection()"
+    },
+    {
+      "label": ".saveAndConnect()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L110",
+      "id": "ui_nexusviewmodel_nexusviewmodel_saveandconnect",
+      "community": 4,
+      "norm_label": ".saveandconnect()"
+    },
+    {
+      "label": ".updateBrokerFields()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L119",
+      "id": "ui_nexusviewmodel_nexusviewmodel_updatebrokerfields",
+      "community": 4,
+      "norm_label": ".updatebrokerfields()"
+    },
+    {
+      "label": ".addCustomSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L148",
+      "id": "ui_nexusviewmodel_nexusviewmodel_addcustomsubscription",
+      "community": 4,
+      "norm_label": ".addcustomsubscription()"
+    },
+    {
+      "label": ".removeSubscription()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L156",
+      "id": "ui_nexusviewmodel_nexusviewmodel_removesubscription",
+      "community": 4,
+      "norm_label": ".removesubscription()"
+    },
+    {
+      "label": ".clearLogs()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L164",
+      "id": "ui_nexusviewmodel_nexusviewmodel_clearlogs",
+      "community": 4,
+      "norm_label": ".clearlogs()"
+    },
+    {
+      "label": ".executeVoiceCommand()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L171",
+      "id": "ui_nexusviewmodel_nexusviewmodel_executevoicecommand",
+      "community": 4,
+      "norm_label": ".executevoicecommand()"
+    },
+    {
+      "label": ".resetVoiceStatus()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L199",
+      "id": "ui_nexusviewmodel_nexusviewmodel_resetvoicestatus",
+      "community": 4,
+      "norm_label": ".resetvoicestatus()"
+    },
+    {
+      "label": ".addTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L206",
+      "id": "ui_nexusviewmodel_nexusviewmodel_addtelemetrysource",
+      "community": 4,
+      "norm_label": ".addtelemetrysource()"
+    },
+    {
+      "label": ".removeTelemetrySource()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L215",
+      "id": "ui_nexusviewmodel_nexusviewmodel_removetelemetrysource",
+      "community": 4,
+      "norm_label": ".removetelemetrysource()"
+    },
+    {
+      "label": ".copyContentUriToFile()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L223",
+      "id": "ui_nexusviewmodel_nexusviewmodel_copycontenturitofile",
+      "community": 4,
+      "norm_label": ".copycontenturitofile()"
+    },
+    {
+      "label": ".addCustomWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L243",
+      "id": "ui_nexusviewmodel_nexusviewmodel_addcustomwidget",
+      "community": 4,
+      "norm_label": ".addcustomwidget()"
+    },
+    {
+      "label": ".editWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L283",
+      "id": "ui_nexusviewmodel_nexusviewmodel_editwidget",
+      "community": 4,
+      "norm_label": ".editwidget()"
+    },
+    {
+      "label": ".deleteWidget()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L317",
+      "id": "ui_nexusviewmodel_nexusviewmodel_deletewidget",
+      "community": 4,
+      "norm_label": ".deletewidget()"
+    },
+    {
+      "label": ".moveWidgetUp()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L323",
+      "id": "ui_nexusviewmodel_nexusviewmodel_movewidgetup",
+      "community": 4,
+      "norm_label": ".movewidgetup()"
+    },
+    {
+      "label": ".moveWidgetDown()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L334",
+      "id": "ui_nexusviewmodel_nexusviewmodel_movewidgetdown",
+      "community": 4,
+      "norm_label": ".movewidgetdown()"
+    },
+    {
+      "label": ".swapWidgets()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L345",
+      "id": "ui_nexusviewmodel_nexusviewmodel_swapwidgets",
+      "community": 4,
+      "norm_label": ".swapwidgets()"
+    },
+    {
+      "label": ".triggerWidgetCommand()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L356",
+      "id": "ui_nexusviewmodel_nexusviewmodel_triggerwidgetcommand",
+      "community": 4,
+      "norm_label": ".triggerwidgetcommand()"
+    },
+    {
+      "label": ".onCleared()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L370",
+      "id": "ui_nexusviewmodel_nexusviewmodel_oncleared",
+      "community": 4,
+      "norm_label": ".oncleared()"
+    },
+    {
+      "label": "UiComponents.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "community": 0,
+      "norm_label": "uicomponents.kt"
+    },
+    {
+      "label": "NeonTheme",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L33",
+      "id": "ui_uicomponents_neontheme",
+      "community": 0,
+      "norm_label": "neontheme"
+    },
+    {
+      "label": "GlassCard()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L44",
+      "id": "ui_uicomponents_glasscard",
+      "community": 0,
+      "norm_label": "glasscard()"
+    },
+    {
+      "label": "GlowButton()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L64",
+      "id": "ui_uicomponents_glowbutton",
+      "community": 0,
+      "norm_label": "glowbutton()"
+    },
+    {
+      "label": "CircularGauge()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L95",
+      "id": "ui_uicomponents_circulargauge",
+      "community": 0,
+      "norm_label": "circulargauge()"
+    },
+    {
+      "label": "SimulatedTelemetryChart()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L153",
+      "id": "ui_uicomponents_simulatedtelemetrychart",
+      "community": 0,
+      "norm_label": "simulatedtelemetrychart()"
+    },
+    {
+      "label": "CustomizableToggle()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L263",
+      "id": "ui_uicomponents_customizabletoggle",
+      "community": 0,
+      "norm_label": "customizabletoggle()"
+    },
+    {
+      "label": "Color.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/theme/Color.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_ui_theme_color_kt",
+      "community": 16,
+      "norm_label": "color.kt"
+    },
+    {
+      "label": "Theme.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/theme/Theme.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_ui_theme_theme_kt",
+      "community": 22,
+      "norm_label": "theme.kt"
+    },
+    {
+      "label": "MyApplicationTheme()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/theme/Theme.kt",
+      "source_location": "L33",
+      "id": "theme_theme_myapplicationtheme",
+      "community": 22,
+      "norm_label": "myapplicationtheme()"
+    },
+    {
+      "label": "Type.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/theme/Type.kt",
+      "source_location": "L1",
+      "id": "app_src_main_java_com_example_ui_theme_type_kt",
+      "community": 17,
+      "norm_label": "type.kt"
+    },
+    {
+      "label": "ExampleRobolectricTest.kt",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L1",
+      "id": "app_src_test_java_com_example_examplerobolectrictest_kt",
+      "community": 8,
+      "norm_label": "examplerobolectrictest.kt"
+    },
+    {
+      "label": "ExampleRobolectricTest",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L13",
+      "id": "example_examplerobolectrictest_examplerobolectrictest",
+      "community": 8,
+      "norm_label": "examplerobolectrictest"
+    },
+    {
+      "label": ".`read string from context`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L17",
+      "id": "example_examplerobolectrictest_examplerobolectrictest_read_string_from_context",
+      "community": 8,
+      "norm_label": ".`read string from context`()"
+    },
+    {
+      "label": ".`launch main activity successfully`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L24",
+      "id": "example_examplerobolectrictest_examplerobolectrictest_launch_main_activity_successfully",
+      "community": 8,
+      "norm_label": ".`launch main activity successfully`()"
+    },
+    {
+      "label": "ExampleUnitTest.kt",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleUnitTest.kt",
+      "source_location": "L1",
+      "id": "app_src_test_java_com_example_exampleunittest_kt",
+      "community": 11,
+      "norm_label": "exampleunittest.kt"
+    },
+    {
+      "label": "ExampleUnitTest",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleUnitTest.kt",
+      "source_location": "L11",
+      "id": "example_exampleunittest_exampleunittest",
+      "community": 11,
+      "norm_label": "exampleunittest"
+    },
+    {
+      "label": ".addition_isCorrect()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/ExampleUnitTest.kt",
+      "source_location": "L12",
+      "id": "example_exampleunittest_exampleunittest_addition_iscorrect",
+      "community": 11,
+      "norm_label": ".addition_iscorrect()"
+    },
+    {
+      "label": "GreetingScreenshotTest.kt",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L1",
+      "id": "app_src_test_java_com_example_greetingscreenshottest_kt",
+      "community": 22,
+      "norm_label": "greetingscreenshottest.kt"
+    },
+    {
+      "label": "GreetingScreenshotTest",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L15",
+      "id": "example_greetingscreenshottest_greetingscreenshottest",
+      "community": 22,
+      "norm_label": "greetingscreenshottest"
+    },
+    {
+      "label": ".greeting_screenshot()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L22",
+      "id": "example_greetingscreenshottest_greetingscreenshottest_greeting_screenshot",
+      "community": 22,
+      "norm_label": ".greeting_screenshot()"
+    },
+    {
+      "label": ".app_screen_renders_successfully()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L29",
+      "id": "example_greetingscreenshottest_greetingscreenshottest_app_screen_renders_successfully",
+      "community": 22,
+      "norm_label": ".app_screen_renders_successfully()"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "agents_md",
+      "community": 24,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "mqtt_dashboard_googlestudio_agents_graphify",
+      "community": 24,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "GRAPHIFY_GUIDE.md",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L1",
+      "id": "graphify_guide_md",
+      "community": 25,
+      "norm_label": "graphify_guide.md"
+    },
+    {
+      "label": "Guia Graphify \u2014 MQTT Dashboard",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L1",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_guia_graphify_mqtt_dashboard",
+      "community": 25,
+      "norm_label": "guia graphify \u2014 mqtt dashboard"
+    },
+    {
+      "label": "Comandos essenciais",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L5",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "community": 25,
+      "norm_label": "comandos essenciais"
+    },
+    {
+      "label": "Atualizar o grafo depois de mexer no c\u00f3digo",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L7",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_atualizar_o_grafo_depois_de_mexer_no_c\u00f3digo",
+      "community": 25,
+      "norm_label": "atualizar o grafo depois de mexer no codigo"
+    },
+    {
+      "label": "code:bash (graphify update \".\")",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L9",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_1",
+      "community": 25,
+      "norm_label": "code:bash (graphify update \".\")"
+    },
+    {
+      "label": "Reconstruir do zero (se adicionar docs, PDFs, imagens)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L15",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_reconstruir_do_zero_se_adicionar_docs_pdfs_imagens",
+      "community": 25,
+      "norm_label": "reconstruir do zero (se adicionar docs, pdfs, imagens)"
+    },
+    {
+      "label": "code:bash (graphify extract \".\" --backend gemini)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L17",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_2",
+      "community": 25,
+      "norm_label": "code:bash (graphify extract \".\" --backend gemini)"
+    },
+    {
+      "label": "Perguntar algo sobre o c\u00f3digo",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L23",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_perguntar_algo_sobre_o_c\u00f3digo",
+      "community": 25,
+      "norm_label": "perguntar algo sobre o codigo"
+    },
+    {
+      "label": "code:bash (graphify query \"como funciona o fluxo de telemetria\" --graph)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L25",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_3",
+      "community": 25,
+      "norm_label": "code:bash (graphify query \"como funciona o fluxo de telemetria\" --graph)"
+    },
+    {
+      "label": "Ver rela\u00e7\u00f5es entre duas coisas",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L31",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_ver_rela\u00e7\u00f5es_entre_duas_coisas",
+      "community": 25,
+      "norm_label": "ver relacoes entre duas coisas"
+    },
+    {
+      "label": "code:bash (graphify path \"DashboardScreen\" \"WidgetConfig\" --graph graph)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L33",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_4",
+      "community": 25,
+      "norm_label": "code:bash (graphify path \"dashboardscreen\" \"widgetconfig\" --graph graph)"
+    },
+    {
+      "label": "Explicar um conceito",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L37",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_explicar_um_conceito",
+      "community": 25,
+      "norm_label": "explicar um conceito"
+    },
+    {
+      "label": "code:bash (graphify explain \"loadWidgetBitmap\" --graph graphify-out/gra)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L39",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_5",
+      "community": 25,
+      "norm_label": "code:bash (graphify explain \"loadwidgetbitmap\" --graph graphify-out/gra)"
+    },
+    {
+      "label": "Ver o relat\u00f3rio completo do projeto",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L43",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_ver_o_relat\u00f3rio_completo_do_projeto",
+      "community": 25,
+      "norm_label": "ver o relatorio completo do projeto"
+    },
+    {
+      "label": "Visualizar o grafo",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L47",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_visualizar_o_grafo",
+      "community": 25,
+      "norm_label": "visualizar o grafo"
+    },
+    {
+      "label": "Fluxo do dia a dia",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L51",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_fluxo_do_dia_a_dia",
+      "community": 25,
+      "norm_label": "fluxo do dia a dia"
+    },
+    {
+      "label": "Se o grafo ficar desatualizado",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L57",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_se_o_grafo_ficar_desatualizado",
+      "community": 25,
+      "norm_label": "se o grafo ficar desatualizado"
+    },
+    {
+      "label": "code:bash (graphify extract \".\" --force --backend gemini)",
+      "file_type": "document",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L59",
+      "id": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_6",
+      "community": 25,
+      "norm_label": "code:bash (graphify extract \".\" --force --backend gemini)"
+    },
+    {
+      "label": "INSTRUCOES_BUILD.md",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L1",
+      "id": "instrucoes_build_md",
+      "community": 20,
+      "norm_label": "instrucoes_build.md"
+    },
+    {
+      "label": "Instru\u00e7\u00f5es para Build e Instala\u00e7\u00e3o do MQTT Dashboard",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L1",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "community": 20,
+      "norm_label": "instrucoes para build e instalacao do mqtt dashboard"
+    },
+    {
+      "label": "Corre\u00e7\u00f5es Aplicadas",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L3",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_corre\u00e7\u00f5es_aplicadas",
+      "community": 20,
+      "norm_label": "correcoes aplicadas"
+    },
+    {
+      "label": "Pr\u00e9-requisitos",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L18",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_pr\u00e9_requisitos",
+      "community": 20,
+      "norm_label": "pre-requisitos"
+    },
+    {
+      "label": "Passo 1: Instalar o JDK 21",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L27",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_passo_1_instalar_o_jdk_21",
+      "community": 20,
+      "norm_label": "passo 1: instalar o jdk 21"
+    },
+    {
+      "label": "code:powershell (winget install EclipseAdoptium.Temurin.21.JDK)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L31",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_1",
+      "community": 20,
+      "norm_label": "code:powershell (winget install eclipseadoptium.temurin.21.jdk)"
+    },
+    {
+      "label": "code:powershell (java -version)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L39",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_2",
+      "community": 20,
+      "norm_label": "code:powershell (java -version)"
+    },
+    {
+      "label": "Passo 2: Instalar o Android SDK",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L47",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_passo_2_instalar_o_android_sdk",
+      "community": 20,
+      "norm_label": "passo 2: instalar o android sdk"
+    },
+    {
+      "label": "code:powershell (# Criar diret\u00f3rio do SDK)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L51",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_3",
+      "community": 20,
+      "norm_label": "code:powershell (# criar diretorio do sdk)"
+    },
+    {
+      "label": "Passo 3: Buildar o APK",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L76",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_passo_3_buildar_o_apk",
+      "community": 20,
+      "norm_label": "passo 3: buildar o apk"
+    },
+    {
+      "label": "code:powershell (# Definir JAVA_HOME (ajuste o nome da pasta se necess\u00e1rio))",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L80",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_4",
+      "community": 20,
+      "norm_label": "code:powershell (# definir java_home (ajuste o nome da pasta se necessario))"
+    },
+    {
+      "label": "Passo 4: Instalar no Celular via USB",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L93",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_passo_4_instalar_no_celular_via_usb",
+      "community": 20,
+      "norm_label": "passo 4: instalar no celular via usb"
+    },
+    {
+      "label": "code:powershell (# Verificar se o celular foi detectado)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L103",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_5",
+      "community": 20,
+      "norm_label": "code:powershell (# verificar se o celular foi detectado)"
+    },
+    {
+      "label": "Passo 5: Testar e Monitorar",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L113",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_passo_5_testar_e_monitorar",
+      "community": 20,
+      "norm_label": "passo 5: testar e monitorar"
+    },
+    {
+      "label": "code:powershell (# Ver logs em tempo real (filtrados pelo MQTT Engine))",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L117",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_6",
+      "community": 20,
+      "norm_label": "code:powershell (# ver logs em tempo real (filtrados pelo mqtt engine))"
+    },
+    {
+      "label": "code:powershell (C:\\Android\\platform-tools\\adb logcat -s MqttEngine NexusView)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L126",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_7",
+      "community": 20,
+      "norm_label": "code:powershell (c:\\android\\platform-tools\\adb logcat -s mqttengine nexusview)"
+    },
+    {
+      "label": "Configura\u00e7\u00e3o Ideal para PC Fraco",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L132",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_configura\u00e7\u00e3o_ideal_para_pc_fraco",
+      "community": 20,
+      "norm_label": "configuracao ideal para pc fraco"
+    },
+    {
+      "label": "code:properties (org.gradle.jvmargs=-Xmx512m -XX:MaxMetaspaceSize=256m)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L136",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_8",
+      "community": 20,
+      "norm_label": "code:properties (org.gradle.jvmargs=-xmx512m -xx:maxmetaspacesize=256m)"
+    },
+    {
+      "label": "Configura\u00e7\u00e3o do Broker no App",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L146",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_configura\u00e7\u00e3o_do_broker_no_app",
+      "community": 20,
+      "norm_label": "configuracao do broker no app"
+    },
+    {
+      "label": "Solu\u00e7\u00e3o de Problemas",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L162",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas",
+      "community": 20,
+      "norm_label": "solucao de problemas"
+    },
+    {
+      "label": "\"A opera\u00e7\u00e3o solicitada n\u00e3o p\u00f4de ser conclu\u00edda devido a uma limita\u00e7\u00e3o do sistema\"",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L164",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_a_opera\u00e7\u00e3o_solicitada_n\u00e3o_p\u00f4de_ser_conclu\u00edda_devido_a_uma_limita\u00e7\u00e3o_do_sistema",
+      "community": 20,
+      "norm_label": "\"a operacao solicitada nao pode ser concluida devido a uma limitacao do sistema\""
+    },
+    {
+      "label": "Gradle build muito lento ou trava",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L168",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_gradle_build_muito_lento_ou_trava",
+      "community": 20,
+      "norm_label": "gradle build muito lento ou trava"
+    },
+    {
+      "label": "APK n\u00e3o instala no celular",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L172",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_apk_n\u00e3o_instala_no_celular",
+      "community": 20,
+      "norm_label": "apk nao instala no celular"
+    },
+    {
+      "label": "code:powershell (# Se j\u00e1 existe uma vers\u00e3o instalada, use -r para substituir:)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L174",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_9",
+      "community": 20,
+      "norm_label": "code:powershell (# se ja existe uma versao instalada, use -r para substituir:)"
+    },
+    {
+      "label": "Conex\u00e3o MQTT continua falhando",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L182",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_conex\u00e3o_mqtt_continua_falhando",
+      "community": 20,
+      "norm_label": "conexao mqtt continua falhando"
+    },
+    {
+      "label": "code:powershell (# Capture o log completo do MQTT)",
+      "file_type": "document",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L184",
+      "id": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_10",
+      "community": 20,
+      "norm_label": "code:powershell (# capture o log completo do mqtt)"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 23,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Run and deploy your AI Studio app",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "id": "mqtt_dashboard_googlestudio_readme_run_and_deploy_your_ai_studio_app",
+      "community": 23,
+      "norm_label": "run and deploy your ai studio app"
+    },
+    {
+      "label": "Run Locally",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L11",
+      "id": "mqtt_dashboard_googlestudio_readme_run_locally",
+      "community": 23,
+      "norm_label": "run locally"
+    },
+    {
+      "label": "task_plan.md",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L1",
+      "id": "task_plan_md",
+      "community": 21,
+      "norm_label": "task_plan.md"
+    },
+    {
+      "label": "Task Plan: Corre\u00e7\u00e3o da Aba Aparelho (DeviceConfigScreen)",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L1",
+      "id": "mqtt_dashboard_googlestudio_task_plan_task_plan_corre\u00e7\u00e3o_da_aba_aparelho_deviceconfigscreen",
+      "community": 21,
+      "norm_label": "task plan: correcao da aba aparelho (deviceconfigscreen)"
+    },
+    {
+      "label": "Problemas",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L3",
+      "id": "mqtt_dashboard_googlestudio_task_plan_problemas",
+      "community": 21,
+      "norm_label": "problemas"
+    },
+    {
+      "label": "Fases",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L10",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "community": 21,
+      "norm_label": "fases"
+    },
+    {
+      "label": "Fase 1: Adicionar campos de imagem ao WidgetConfig",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L12",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fase_1_adicionar_campos_de_imagem_ao_widgetconfig",
+      "community": 21,
+      "norm_label": "fase 1: adicionar campos de imagem ao widgetconfig"
+    },
+    {
+      "label": "Fase 2: Implementar image picker real",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L18",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fase_2_implementar_image_picker_real",
+      "community": 21,
+      "norm_label": "fase 2: implementar image picker real"
+    },
+    {
+      "label": "Fase 3: Corrigir \"Salvar Dados\"",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L24",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fase_3_corrigir_salvar_dados",
+      "community": 21,
+      "norm_label": "fase 3: corrigir \"salvar dados\""
+    },
+    {
+      "label": "Fase 4: Exibir imagens no Grid (Dashboard)",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L30",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fase_4_exibir_imagens_no_grid_dashboard",
+      "community": 21,
+      "norm_label": "fase 4: exibir imagens no grid (dashboard)"
+    },
+    {
+      "label": "Fase 5: Build e verifica\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L34",
+      "id": "mqtt_dashboard_googlestudio_task_plan_fase_5_build_e_verifica\u00e7\u00e3o",
+      "community": 21,
+      "norm_label": "fase 5: build e verificacao"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "task_plan.md",
+      "source_location": "L37",
+      "id": "mqtt_dashboard_googlestudio_task_plan_decis\u00f5es",
+      "community": 21,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "opencode.json",
+      "file_type": "code",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L1",
+      "community": 12,
+      "norm_label": "opencode.json",
+      "id": "opencode_opencode_json"
+    },
+    {
+      "label": "plugin",
+      "file_type": "code",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L2",
+      "community": 12,
+      "norm_label": "plugin",
+      "id": "opencode_opencode_plugin"
+    },
+    {
+      "label": "graphify.js",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L1",
+      "community": 13,
+      "norm_label": "graphify.js",
+      "id": "opencode_plugins_graphify_js"
+    },
+    {
+      "label": "GraphifyPlugin()",
+      "file_type": "code",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L6",
+      "community": 13,
+      "norm_label": "graphifyplugin()",
+      "id": "plugins_graphify_graphifyplugin"
+    },
+    {
+      "label": "AndroidManifest.xml",
+      "file_type": "code",
+      "source_file": "app/src/main/AndroidManifest.xml",
+      "source_location": "16",
+      "community": 3,
+      "norm_label": "androidmanifest.xml",
+      "id": "instrucoes_build_android_manifest"
+    },
+    {
+      "label": "gradle.properties",
+      "file_type": "code",
+      "source_file": "gradle.properties",
+      "community": 18,
+      "norm_label": "gradle.properties",
+      "id": "instrucoes_build_gradle_properties"
+    },
+    {
+      "label": "Database.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "community": 1,
+      "norm_label": "database.kt",
+      "id": "task_plan_database"
+    },
+    {
+      "label": "NexusRepository",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "community": 1,
+      "norm_label": "nexusrepository",
+      "id": "task_plan_nexus_repository"
+    },
+    {
+      "label": "DeviceConfigScreen",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/DeviceConfigScreen.kt",
+      "community": 1,
+      "norm_label": "deviceconfigscreen",
+      "id": "task_plan_device_config_screen"
+    },
+    {
+      "label": "DashboardScreen",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/example/ui/DashboardScreen.kt",
+      "community": 1,
+      "norm_label": "dashboardscreen",
+      "id": "task_plan_dashboard_screen"
+    },
+    {
+      "label": "AI Studio App",
+      "file_type": "concept",
+      "source_url": "https://ai.studio/apps/e7e482cc-307d-42cc-81be-821482cd712a",
+      "community": 9,
+      "norm_label": "ai studio app",
+      "id": "readme_ai_studio"
+    },
+    {
+      "label": "IoT Logo",
+      "file_type": "image",
+      "source_file": "app/src/main/res/drawable/img_iot_logo.png",
+      "community": 19,
+      "norm_label": "iot logo",
+      "id": "img_iot_logo"
+    },
+    {
+      "label": "ic_launcher",
+      "file_type": "image",
+      "source_file": "app/src/main/res/mipmap-hdpi/ic_launcher.webp",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "ic_launcher",
+      "id": "app_ic_launcher"
+    },
+    {
+      "label": "ic_launcher_round",
+      "file_type": "image",
+      "source_file": "app/src/main/res/mipmap-hdpi/ic_launcher_round.webp",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "ic_launcher_round",
+      "id": "app_ic_launcher_round"
+    },
+    {
+      "label": "ic_launcher (xhdpi)",
+      "file_type": "image",
+      "source_file": "app/src/main/res/mipmap-xhdpi/ic_launcher.webp",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "ic_launcher (xhdpi)",
+      "id": "app_ic_launcher_xhdpi"
+    },
+    {
+      "label": "Greeting Screenshot",
+      "file_type": "image",
+      "source_file": "app/src/test/screenshots/greeting.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 22,
+      "norm_label": "greeting screenshot",
+      "id": "greeting_screenshot"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "metadata.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_json",
+      "target": "mqtt_dashboard_googlestudio_metadata_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "metadata.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_json",
+      "target": "mqtt_dashboard_googlestudio_metadata_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "metadata.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_json",
+      "target": "mqtt_dashboard_googlestudio_metadata_requestframepermissions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "metadata.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_json",
+      "target": "mqtt_dashboard_googlestudio_metadata_majorcapabilities"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source": "app_build_gradle_kts",
+      "target": "readme_ai_studio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_androidtest_java_com_example_exampleinstrumentedtest_kt",
+      "target": "example_exampleinstrumentedtest_exampleinstrumentedtest"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/androidTest/java/com/example/ExampleInstrumentedTest.kt",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_exampleinstrumentedtest_exampleinstrumentedtest",
+      "target": "example_exampleinstrumentedtest_exampleinstrumentedtest_useappcontext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_mainactivity"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_splashscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L254",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_appscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L410",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_topheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L513",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_bottomnavigationbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L561",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_loadwidgetbitmap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L578",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_dashboardscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L763",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_logscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L818",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_telemetrystat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L827",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_metricsscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_editgaugedialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1180",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_addtelemetrysourcedialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1280",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_deviceconfigscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1652",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_voicescreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1781",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_dynamicwidgeticon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1794",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_vectoriconhub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1814",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_vectoriconmic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1846",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_brokersettingsdialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2078",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_addwidgetdialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2257",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_mainactivity_kt",
+      "target": "example_mainactivity_editwidgetdialog"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_mainactivity_oncreate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_splashscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L254",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_appscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L410",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_topheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L513",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_bottomnavigationbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L561",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_loadwidgetbitmap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L574",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_dashboardscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L759",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_logscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L814",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_telemetrystat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L823",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_metricsscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_editgaugedialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_addtelemetrysourcedialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1276",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_deviceconfigscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1636",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_voicescreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1765",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_dynamicwidgeticon"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1778",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_vectoriconhub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1798",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_vectoriconmic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1830",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_brokersettingsdialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2062",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_addwidgetdialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L2241",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity",
+      "target": "example_mainactivity_editwidgetdialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L86",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_mainactivity_oncreate",
+      "target": "example_mainactivity_appscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "example_mainactivity_mainactivity_oncreate",
+      "target": "theme_theme_myapplicationtheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L282",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_splashscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest_greeting_screenshot",
+      "target": "example_mainactivity_splashscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "greeting_screenshot",
+      "target": "example_mainactivity_splashscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L289",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_topheader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L296",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_bottomnavigationbar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L309",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_dashboardscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L320",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_logscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_metricsscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L344",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_deviceconfigscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L347",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_voicescreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L356",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_brokersettingsdialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L384",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_addwidgetdialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L396",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_appscreen",
+      "target": "example_mainactivity_editwidgetdialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest_app_screen_renders_successfully",
+      "target": "example_mainactivity_appscreen"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L703",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_dashboardscreen",
+      "target": "example_mainactivity_loadwidgetbitmap"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L657",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_dashboardscreen",
+      "target": "example_mainactivity_dynamicwidgeticon"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L641",
+      "weight": 1.0,
+      "source": "example_mainactivity_dashboardscreen",
+      "target": "ui_uicomponents_glasscard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L680",
+      "weight": 1.0,
+      "source": "example_mainactivity_dashboardscreen",
+      "target": "ui_uicomponents_customizabletoggle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L792",
+      "weight": 1.0,
+      "source": "example_mainactivity_logscreen",
+      "target": "ui_uicomponents_glasscard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1031",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "example_mainactivity_telemetrystat"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1081",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "example_mainactivity_editgaugedialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1097",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "example_mainactivity_addtelemetrysourcedialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L919",
+      "weight": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "ui_uicomponents_circulargauge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L946",
+      "weight": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "ui_uicomponents_glasscard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1017",
+      "weight": 1.0,
+      "source": "example_mainactivity_metricsscreen",
+      "target": "ui_uicomponents_simulatedtelemetrychart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1596",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_mainactivity_deviceconfigscreen",
+      "target": "example_mainactivity_vectoriconhub"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1343",
+      "weight": 1.0,
+      "source": "example_mainactivity_deviceconfigscreen",
+      "target": "ui_uicomponents_glasscard"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/MainActivity.kt",
+      "source_location": "L1606",
+      "weight": 1.0,
+      "source": "example_mainactivity_deviceconfigscreen",
+      "target": "ui_uicomponents_glowbutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_mqttbrokerconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_mqttsubscription"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_mqttmessagelog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_telemetrysource"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_widgetconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_mqttdao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_appdatabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_migrate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_database_kt",
+      "target": "data_database_getdatabase"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_getbrokerconfig",
+      "target": "data_database_mqttbrokerconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_mqttbrokerconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_addsubscription",
+      "target": "data_database_mqttsubscription"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_removesubscription",
+      "target": "data_database_mqttsubscription"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "target": "data_database_mqttsubscription"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_mqttsubscription"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_insertmessagelog",
+      "target": "data_database_mqttmessagelog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_mqttmessagelog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_addtelemetrysource",
+      "target": "data_database_telemetrysource"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_telemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_database_telemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "data_database_telemetrysource"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "target": "data_database_widgetconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel_addcustomwidget",
+      "target": "data_database_widgetconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_widgetconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getbrokerconfigflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getbrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L82",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_savebrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L86",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getallsubscriptionsflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getallsubscriptions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_addsubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_removesubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L99",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getallmessagelogsflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_insertmessagelog"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_clearmessagelogs"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getmaxposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_updatewidgetposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getallwidgetsflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getwidgetscount"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getallwidgets"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_insertwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_updatewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_deletewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_updatewidgetvaluebytopic"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_updatewidgetvaluebysubscribetopic"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_getalltelemetrysourcesflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_inserttelemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_database_mqttdao",
+      "target": "data_database_mqttdao_deletetelemetrysource"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_mqttdao"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L132",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_database_mqttdao_updatewidgetvaluebytopic"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_appdatabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_migrate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/Database.kt",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_database",
+      "target": "data_database_getdatabase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_mqttengine_kt",
+      "target": "data_mqttengine_mqttstatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_mqttengine_kt",
+      "target": "data_mqttengine_mqttreceivedmessage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_mqttengine_kt",
+      "target": "data_mqttengine_mqttengine"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttstatus"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_publish",
+      "target": "data_mqttengine_mqttreceivedmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L369",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_handleinboundpacket",
+      "target": "data_mqttengine_mqttreceivedmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L425",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_startsimulationloop",
+      "target": "data_mqttengine_mqttreceivedmessage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttreceivedmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_connect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_disconnect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L153",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_close"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_disconnectinternal"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_publish"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L212",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_subscribe"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L229",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_unsubscribe"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L235",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_sendconnectpacket"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L299",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_sendsubscribepacket"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L320",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_sendpublishpacket"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L338",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_startkeepaliveloop"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L357",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_handleinboundpacket"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L380",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_readremaininglength"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L393",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_writeremaininglength"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L407",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_startsimulationloop"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L496",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine",
+      "target": "data_mqttengine_mqttengine_stopsimulationloop"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source": "data_mqttengine_mqttengine",
+      "target": "instrucoes_build_android_manifest"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "data_mqttengine_mqttengine"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_stopsimulationloop"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_sendconnectpacket"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_readremaininglength"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_sendsubscribepacket"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_startkeepaliveloop"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_handleinboundpacket"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_connect",
+      "target": "data_mqttengine_mqttengine_disconnectinternal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L149",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_disconnect",
+      "target": "data_mqttengine_mqttengine_disconnectinternal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_close",
+      "target": "data_mqttengine_mqttengine_stopsimulationloop"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L175",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_disconnectinternal",
+      "target": "data_mqttengine_mqttengine_close"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_disconnectinternal",
+      "target": "data_mqttengine_mqttengine_startsimulationloop"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L194",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_publish",
+      "target": "data_mqttengine_mqttengine_sendpublishpacket"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_subscribe",
+      "target": "data_mqttengine_mqttengine_sendsubscribepacket"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L265",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_sendconnectpacket",
+      "target": "data_mqttengine_mqttengine_writeremaininglength"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L305",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_sendsubscribepacket",
+      "target": "data_mqttengine_mqttengine_writeremaininglength"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/MqttEngine.kt",
+      "source_location": "L326",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_mqttengine_mqttengine_sendpublishpacket",
+      "target": "data_mqttengine_mqttengine_writeremaininglength"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_nexusrepository_kt",
+      "target": "data_nexusrepository_nexusrepository"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_getbrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_savebrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_getallsubscriptions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_addsubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_removesubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_insertmessagelog"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_clearmessagelogs"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_insertwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_updatewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_deletewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L132",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_updatewidgetvalue"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_updatewidgetvaluebysubscribetopic"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_getmaxposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_updatewidgetposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_addtelemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository",
+      "target": "data_nexusrepository_nexusrepository_removetelemetrysource"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository_getbrokerconfig",
+      "target": "data_nexusrepository_nexusrepository_savebrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_getbrokerconfig"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_savebrokerconfig"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "target": "data_nexusrepository_nexusrepository_getallsubscriptions"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_getallsubscriptions"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "target": "data_nexusrepository_nexusrepository_addsubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_addsubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_removesubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_insertmessagelog"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_clearmessagelogs"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded",
+      "target": "data_nexusrepository_nexusrepository_insertwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_initializedefaultwidgetsifneeded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_insertwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_updatewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L128",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_deletewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_updatewidgetvaluebysubscribetopic"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L140",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_getmaxposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_updatewidgetposition"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/NexusRepository.kt",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_nexus_repository",
+      "target": "data_nexusrepository_nexusrepository_removetelemetrysource"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_voicecommandmanager_kt",
+      "target": "data_voicecommandmanager_voicecommandmanager"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_data_voicecommandmanager_kt",
+      "target": "data_voicecommandmanager_commandresult"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_voicecommandmanager_voicecommandmanager",
+      "target": "data_voicecommandmanager_voicecommandmanager_processcommand"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_voicecommandmanager_voicecommandmanager",
+      "target": "data_voicecommandmanager_commandresult"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/data/VoiceCommandManager.kt",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "data_voicecommandmanager_voicecommandmanager_processcommand",
+      "target": "data_voicecommandmanager_commandresult"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_nexusviewmodel_kt",
+      "target": "ui_nexusviewmodel_nexusviewmodel"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_toggleconnection"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_saveandconnect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L118",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_updatebrokerfields"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_addcustomsubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L155",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_removesubscription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L163",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_clearlogs"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_executevoicecommand"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L198",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_resetvoicestatus"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_addtelemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_removetelemetrysource"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_copycontenturitofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L222",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_addcustomwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_editwidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L292",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_deletewidget"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L298",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_movewidgetup"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L309",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_movewidgetdown"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L320",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_swapwidgets"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L331",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_triggerwidgetcommand"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L345",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel",
+      "target": "ui_nexusviewmodel_nexusviewmodel_oncleared"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L258",
+      "weight": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel_addcustomwidget",
+      "target": "ui_nexusviewmodel_nexusviewmodel_copycontenturitofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/NexusViewModel.kt",
+      "source_location": "L298",
+      "weight": 1.0,
+      "source": "ui_nexusviewmodel_nexusviewmodel_editwidget",
+      "target": "ui_nexusviewmodel_nexusviewmodel_copycontenturitofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_neontheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_glasscard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_glowbutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_circulargauge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L153",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_simulatedtelemetrychart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/UiComponents.kt",
+      "source_location": "L263",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_uicomponents_kt",
+      "target": "ui_uicomponents_customizabletoggle"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/example/ui/theme/Theme.kt",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_main_java_com_example_ui_theme_theme_kt",
+      "target": "theme_theme_myapplicationtheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest_greeting_screenshot",
+      "target": "theme_theme_myapplicationtheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest_app_screen_renders_successfully",
+      "target": "theme_theme_myapplicationtheme"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "greeting_screenshot",
+      "target": "theme_theme_myapplicationtheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_test_java_com_example_examplerobolectrictest_kt",
+      "target": "example_examplerobolectrictest_examplerobolectrictest"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_examplerobolectrictest_examplerobolectrictest",
+      "target": "example_examplerobolectrictest_examplerobolectrictest_read_string_from_context"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/ExampleRobolectricTest.kt",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_examplerobolectrictest_examplerobolectrictest",
+      "target": "example_examplerobolectrictest_examplerobolectrictest_launch_main_activity_successfully"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/ExampleUnitTest.kt",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_test_java_com_example_exampleunittest_kt",
+      "target": "example_exampleunittest_exampleunittest"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/ExampleUnitTest.kt",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_exampleunittest_exampleunittest",
+      "target": "example_exampleunittest_exampleunittest_addition_iscorrect"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_src_test_java_com_example_greetingscreenshottest_kt",
+      "target": "example_greetingscreenshottest_greetingscreenshottest"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest",
+      "target": "example_greetingscreenshottest_greetingscreenshottest_greeting_screenshot"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "example_greetingscreenshottest_greetingscreenshottest",
+      "target": "example_greetingscreenshottest_greetingscreenshottest_app_screen_renders_successfully"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/example/GreetingScreenshotTest.kt",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "greeting_screenshot",
+      "target": "example_greetingscreenshottest_greetingscreenshottest_app_screen_renders_successfully"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_md",
+      "target": "mqtt_dashboard_googlestudio_agents_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "graphify_guide_md",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_guia_graphify_mqtt_dashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_guia_graphify_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_guia_graphify_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_fluxo_do_dia_a_dia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_guia_graphify_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_se_o_grafo_ficar_desatualizado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_atualizar_o_grafo_depois_de_mexer_no_c\u00f3digo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_reconstruir_do_zero_se_adicionar_docs_pdfs_imagens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_perguntar_algo_sobre_o_c\u00f3digo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_ver_rela\u00e7\u00f5es_entre_duas_coisas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_explicar_um_conceito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_ver_o_relat\u00f3rio_completo_do_projeto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_comandos_essenciais",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_visualizar_o_grafo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_atualizar_o_grafo_depois_de_mexer_no_c\u00f3digo",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_reconstruir_do_zero_se_adicionar_docs_pdfs_imagens",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_perguntar_algo_sobre_o_c\u00f3digo",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_ver_rela\u00e7\u00f5es_entre_duas_coisas",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_explicar_um_conceito",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GRAPHIFY_GUIDE.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "mqtt_dashboard_googlestudio_graphify_guide_se_o_grafo_ficar_desatualizado",
+      "target": "mqtt_dashboard_googlestudio_graphify_guide_codeblock_6",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "instrucoes_build_md",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_corre\u00e7\u00f5es_aplicadas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_pr\u00e9_requisitos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_passo_1_instalar_o_jdk_21"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_passo_2_instalar_o_android_sdk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_passo_3_buildar_o_apk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_passo_4_instalar_no_celular_via_usb"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_passo_5_testar_e_monitorar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L132",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_configura\u00e7\u00e3o_ideal_para_pc_fraco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_configura\u00e7\u00e3o_do_broker_no_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_instru\u00e7\u00f5es_para_build_e_instala\u00e7\u00e3o_do_mqtt_dashboard",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_1_instalar_o_jdk_21",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_1_instalar_o_jdk_21",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_2"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_2_instalar_o_android_sdk",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_3_buildar_o_apk",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_4"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_4_instalar_no_celular_via_usb",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_5_testar_e_monitorar",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_6"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_passo_5_testar_e_monitorar",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_7"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_configura\u00e7\u00e3o_ideal_para_pc_fraco",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_8"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L164",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_a_opera\u00e7\u00e3o_solicitada_n\u00e3o_p\u00f4de_ser_conclu\u00edda_devido_a_uma_limita\u00e7\u00e3o_do_sistema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L168",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_gradle_build_muito_lento_ou_trava"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L172",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_apk_n\u00e3o_instala_no_celular"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_solu\u00e7\u00e3o_de_problemas",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_conex\u00e3o_mqtt_continua_falhando"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L174",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_apk_n\u00e3o_instala_no_celular",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_9"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "INSTRUCOES_BUILD.md",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_instrucoes_build_conex\u00e3o_mqtt_continua_falhando",
+      "target": "mqtt_dashboard_googlestudio_instrucoes_build_codeblock_10"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_md",
+      "target": "mqtt_dashboard_googlestudio_readme_run_and_deploy_your_ai_studio_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_readme_run_and_deploy_your_ai_studio_app",
+      "target": "mqtt_dashboard_googlestudio_readme_run_locally"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "task_plan_md",
+      "target": "mqtt_dashboard_googlestudio_task_plan_task_plan_corre\u00e7\u00e3o_da_aba_aparelho_deviceconfigscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_task_plan_corre\u00e7\u00e3o_da_aba_aparelho_deviceconfigscreen",
+      "target": "mqtt_dashboard_googlestudio_task_plan_problemas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_task_plan_corre\u00e7\u00e3o_da_aba_aparelho_deviceconfigscreen",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fases"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_task_plan_corre\u00e7\u00e3o_da_aba_aparelho_deviceconfigscreen",
+      "target": "mqtt_dashboard_googlestudio_task_plan_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fase_1_adicionar_campos_de_imagem_ao_widgetconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fase_2_implementar_image_picker_real"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fase_3_corrigir_salvar_dados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fase_4_exibir_imagens_no_grid_dashboard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "task_plan.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mqtt_dashboard_googlestudio_task_plan_fases",
+      "target": "mqtt_dashboard_googlestudio_task_plan_fase_5_build_e_verifica\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "opencode_opencode_json",
+      "target": "opencode_opencode_plugin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "opencode_plugins_graphify_js",
+      "target": "plugins_graphify_graphifyplugin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "task_plan.md",
+      "source": "task_plan_device_config_screen",
+      "target": "task_plan_database"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "task_plan.md",
+      "source": "task_plan_nexus_repository",
+      "target": "task_plan_database"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "task_plan.md",
+      "source": "task_plan_dashboard_screen",
+      "target": "task_plan_database"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_ic_launcher",
+      "target": "app_ic_launcher_round"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 1.0,
+      "source_file": "app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_ic_launcher",
+      "target": "app_ic_launcher_xhdpi"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_ic_launcher_xhdpi",
+      "target": "app_ic_launcher_round"
+    }
+  ],
+  "hyperedges": []
+}
