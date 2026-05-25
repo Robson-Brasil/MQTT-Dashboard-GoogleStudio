@@ -1,5 +1,7 @@
 # Guia Graphify — MQTT Dashboard
 
+Inicio de tudo /graphify .
+
 Reinicia com /graphify --update pra garantir.
 
 Graphify cria um **grafo de conhecimento** do código pra IA não se perder nos arquivos.
