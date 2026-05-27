@@ -260,6 +260,7 @@ fun AppScreen() {
 
     val connectionStatus by viewModel.connectionStatus.collectAsState()
     val widgets by viewModel.widgets.collectAsState()
+    val dashboardWidgets by viewModel.dashboardWidgets.collectAsState()
     val messageLogs by viewModel.messageLogs.collectAsState()
     val telemetrySources by viewModel.telemetrySources.collectAsState()
     val telemetryHistory by viewModel.telemetryHistory.collectAsState()
@@ -306,7 +307,7 @@ fun AppScreen() {
         ) {
             when (currentTab) {
                 "dashboard" -> DashboardScreen(
-                    widgets = widgets,
+                    widgets = dashboardWidgets,
                     isOffline = isOffline,
                     onToggleWidget = { viewModel.toggleWidget(it) },
                     onDeleteWidget = { viewModel.deleteWidget(it) },
@@ -838,7 +839,7 @@ fun MetricsScreen(
                                     } catch (e: Exception) {
                                         NeonTheme.OutlineCyan
                                     }
-                                    CircularGauge(
+                                    NeonGauge(
                                         value = value,
                                         maxValue = maxValue,
                                         title = widget.title,
@@ -1089,11 +1090,15 @@ fun AddTelemetrySourceDialog(
 
     val colorOptions = listOf(
         "#00DBE9" to "Ciano",
-        "#ABD600" to "Verde",
-        "#FFACE8" to "Rosa",
+        "#ABD600" to "Verde Limão",
+        "#4FC3F7" to "Azul Claro",
+        "#CE93D8" to "Roxo",
+        "#FF5252" to "Vermelho",
         "#FFB74D" to "Laranja",
-        "#4FC3F7" to "Azul",
-        "#FF5252" to "Vermelho"
+        "#FFD54F" to "Amarelo",
+        "#FFACE8" to "Rosa",
+        "#4DB6AC" to "Verde Água",
+        "#F06292" to "Rosa Choque"
     )
 
     AlertDialog(

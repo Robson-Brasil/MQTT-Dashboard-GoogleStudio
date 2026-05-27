@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -93,7 +94,7 @@ fun GlowButton(
 }
 
 @Composable
-fun CircularGauge(
+fun NeonGauge(
     value: Float,
     maxValue: Float,
     title: String,
@@ -101,33 +102,56 @@ fun CircularGauge(
     modifier: Modifier = Modifier,
     color: Color = NeonTheme.OutlineCyan
 ) {
+    val progress = (value / maxValue).coerceIn(0f, 1f)
+    val sweep = progress * 270f
+
     Box(
         modifier = modifier.size(160.dp),
         contentAlignment = Alignment.Center
     ) {
-        Canvas(modifier = Modifier.size(130.dp)) {
-            val strokeWidth = 8.dp.toPx()
-            
-            // Background arc background
+        Canvas(modifier = Modifier.size(140.dp)) {
+            val strokeWidth = 12.dp.toPx()
+            val activeSweep = sweep.coerceIn(0f, 270f)
+
+            // Neon glow layers (outer → inner → core)
+            val glowParams = listOf(
+                30.dp.toPx() to 0.04f,
+                24.dp.toPx() to 0.08f,
+                18.dp.toPx() to 0.18f,
+                14.dp.toPx() to 0.35f
+            )
+            for ((width, alpha) in glowParams) {
+                drawArc(
+                    color = color.copy(alpha = alpha),
+                    startAngle = -225f,
+                    sweepAngle = activeSweep,
+                    useCenter = false,
+                    style = Stroke(width = width, cap = StrokeCap.Round)
+                )
+            }
+
+            // Background arc
             drawArc(
                 color = Color(0xFF151B2D),
                 startAngle = -225f,
                 sweepAngle = 270f,
                 useCenter = false,
-                style = Stroke(strokeWidth)
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
             )
 
-            // Value Arc fill
-            val sweep = (value / maxValue) * 270f
+            // Value arc
             drawArc(
                 color = color,
                 startAngle = -225f,
-                sweepAngle = sweep.coerceIn(0f, 271f),
+                sweepAngle = activeSweep,
                 useCenter = false,
-                style = Stroke(strokeWidth)
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
             )
         }
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             Text(
                 text = String.format("%.1f", value),
                 fontSize = 32.sp,
@@ -136,15 +160,18 @@ fun CircularGauge(
             )
             Text(
                 text = title,
-                fontSize = 11.sp,
-                fontWeight = FontWeight.Normal,
-                color = NeonTheme.TextVariant
+                fontSize = 10.sp,
+                fontWeight = FontWeight.Medium,
+                color = NeonTheme.TextVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
             Text(
                 text = unit,
-                fontSize = 9.sp,
-                fontWeight = FontWeight.Light,
-                color = color
+                fontSize = 11.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = color,
+                letterSpacing = 0.5.sp
             )
         }
     }

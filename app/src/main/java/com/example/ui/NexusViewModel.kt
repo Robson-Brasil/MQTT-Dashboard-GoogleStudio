@@ -22,6 +22,9 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
     val connectionStatus: StateFlow<MqttStatus> = mqttEngine.status
     val widgets: StateFlow<List<WidgetConfig>> = repository.widgetsFlow
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+    val dashboardWidgets: StateFlow<List<WidgetConfig>> = widgets.map { list ->
+        list.filter { it.type == "switch" || it.type == "command" }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
         
     val messageLogs: StateFlow<List<MqttMessageLog>> = repository.messageLogsFlow
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
@@ -31,7 +34,7 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
 
     // Telemetry Sources (one chart per source)
     val telemetrySources: StateFlow<List<TelemetrySource>> = repository.telemetrySourcesFlow
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     private val _telemetryHistory = MutableStateFlow<Map<String, List<Float>>>(emptyMap())
     val telemetryHistory: StateFlow<Map<String, List<Float>>> = _telemetryHistory
@@ -202,11 +205,34 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     // Telemetry Sources
+    private fun inferGaugeType(label: String, topic: String): String {
+        val combined = "$label $topic".lowercase()
+        return when {
+            "temp" in combined -> "temperature"
+            "umid" in combined || "humid" in combined || "umidade" in combined -> "humidity"
+            "press" in combined || "pressão" in combined || "pressao" in combined -> "pressure"
+            else -> "gauge"
+        }
+    }
+
     fun addTelemetrySource(topic: String, label: String, colorHex: String = "#00DBE9") {
         viewModelScope.launch {
             repository.addTelemetrySource(topic, label, colorHex)
+            val nextPos = repository.getMaxPosition() + 1
+            val gaugeType = inferGaugeType(label, topic)
+            repository.insertWidget(
+                WidgetConfig(
+                    title = label,
+                    topic = topic,
+                    type = gaugeType,
+                    colorHex = colorHex,
+                    subscribeTopic = topic,
+                    lastKnownValue = "0",
+                    position = nextPos,
+                    imageSize = 124f
+                )
+            )
             mqttEngine.subscribe(topic)
-            // Initialize with empty history
             _telemetryHistory.value = _telemetryHistory.value + (topic to emptyList<Float>())
         }
     }
@@ -214,6 +240,9 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
     fun removeTelemetrySource(source: TelemetrySource) {
         viewModelScope.launch {
             repository.removeTelemetrySource(source)
+            widgets.value.find { it.topic == source.topic && it.type != "switch" && it.type != "command" }?.let {
+                repository.deleteWidget(it)
+            }
             _telemetryHistory.value = _telemetryHistory.value - source.topic
         }
     }
