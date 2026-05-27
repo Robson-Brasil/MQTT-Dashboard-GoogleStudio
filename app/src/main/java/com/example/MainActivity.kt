@@ -309,6 +309,7 @@ fun AppScreen() {
                     widgets = widgets,
                     isOffline = isOffline,
                     onToggleWidget = { viewModel.toggleWidget(it) },
+                    onDeleteWidget = { viewModel.deleteWidget(it) },
                     onToggleConnection = { viewModel.toggleConnection() }
                 )
                 "logs" -> LogScreen(
@@ -544,101 +545,134 @@ private fun loadWidgetBitmap(context: android.content.Context, uriString: String
 }
 
 // --- Dashboard ---
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun DashboardScreen(
     widgets: List<WidgetConfig>,
     isOffline: Boolean,
     onToggleWidget: (WidgetConfig) -> Unit,
+    onDeleteWidget: (WidgetConfig) -> Unit = {},
     onToggleConnection: () -> Unit = {}
 ) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        modifier = Modifier.fillMaxSize().padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+    var isDeleteMode by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp).verticalScroll(rememberScrollState())
     ) {
-        item(span = { GridItemSpan(2) }) {
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Column {
                 Text(text = "PAINEL DE CONTROLE", fontSize = 11.sp, color = NeonTheme.OutlineLime, letterSpacing = 1.5.sp, fontWeight = FontWeight.Bold)
                 Text(text = "Dashboard Interativo", fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(12.dp))
-                Button(
-                    onClick = onToggleConnection,
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = if (isOffline) Color(0xFFFF5252) else NeonTheme.OutlineLime,
-                        contentColor = Color.Black
-                    ),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
-                    Icon(
-                        imageVector = if (isOffline) Icons.Default.Close else Icons.Default.Check,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp)
-                    )
-                    Spacer(Modifier.width(8.dp))
+            }
+            if (widgets.isNotEmpty()) {
+                TextButton(onClick = { isDeleteMode = !isDeleteMode }) {
                     Text(
-                        text = if (isOffline) "CONECTAR AO BROKER" else "DESCONECTAR",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp
+                        text = if (isDeleteMode) "Concluir" else "Excluir",
+                        fontSize = 12.sp,
+                        color = if (isDeleteMode) NeonTheme.OutlineLime else Color(0xFFFF5252),
+                        fontWeight = FontWeight.Bold
                     )
                 }
             }
         }
 
+        Spacer(Modifier.height(12.dp))
+
+        Button(
+            onClick = onToggleConnection,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = if (isOffline) Color(0xFFFF5252) else NeonTheme.OutlineLime,
+                contentColor = Color.Black
+            ),
+            shape = RoundedCornerShape(12.dp)
+        ) {
+            Icon(
+                imageVector = if (isOffline) Icons.Default.Close else Icons.Default.Check,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp)
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(
+                text = if (isOffline) "CONECTAR AO BROKER" else "DESCONECTAR",
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp
+            )
+        }
+
+        Spacer(Modifier.height(16.dp))
+
         if (widgets.isEmpty()) {
-            item(span = { GridItemSpan(2) }) {
-                Box(Modifier.fillMaxWidth().padding(vertical = 32.dp), contentAlignment = Alignment.Center) {
-                    Text("Nenhum botão configurado. Crie um na aba Aparelhos.", color = NeonTheme.TextVariant, fontSize = 14.sp)
-                }
+            Box(Modifier.fillMaxWidth().padding(vertical = 32.dp), contentAlignment = Alignment.Center) {
+                Text("Nenhum botão configurado. Crie um na aba Aparelhos.", color = NeonTheme.TextVariant, fontSize = 14.sp)
             }
         } else {
-            items(widgets, key = { it.id }) { widget ->
-                val context = LocalContext.current
-                var onBmp by remember(widget.id, widget.imageOnUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
-                var offBmp by remember(widget.id, widget.imageOffUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
-                LaunchedEffect(widget.id, widget.imageOnUri) {
-                    onBmp = loadWidgetBitmap(context, widget.imageOnUri)
-                }
-                LaunchedEffect(widget.id, widget.imageOffUri) {
-                    offBmp = loadWidgetBitmap(context, widget.imageOffUri)
-                }
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                widgets.forEach { widget ->
+                    val context = LocalContext.current
+                    var onBmp by remember(widget.id, widget.imageOnUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
+                    var offBmp by remember(widget.id, widget.imageOffUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
+                    LaunchedEffect(widget.id, widget.imageOnUri) {
+                        onBmp = loadWidgetBitmap(context, widget.imageOnUri)
+                    }
+                    LaunchedEffect(widget.id, widget.imageOffUri) {
+                        offBmp = loadWidgetBitmap(context, widget.imageOffUri)
+                    }
 
-                val isOn = widget.lastKnownValue == "ON" || widget.lastKnownValue == widget.payloadOn
-                val displayBmp = if (isOn) (onBmp ?: offBmp) else (offBmp ?: onBmp)
+                    val isOn = widget.lastKnownValue == "ON" || widget.lastKnownValue == widget.payloadOn
+                    val displayBmp = if (isOn) (onBmp ?: offBmp) else (offBmp ?: onBmp)
 
-                Column(
-                    modifier = Modifier.fillMaxWidth().clickable { onToggleWidget(widget) },
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    if (displayBmp != null) {
-                        androidx.compose.foundation.Image(
-                            bitmap = displayBmp.asImageBitmap(),
-                            contentDescription = widget.title,
-                            modifier = Modifier
-                                .size(widget.imageSize.dp.coerceAtMost(120.dp))
-                                .clip(RoundedCornerShape(16.dp))
-                                .background(if (isOn) Color(0xFF1B5E20) else Color(0xFFB71C1C).copy(alpha = 0.3f)),
-                            contentScale = ContentScale.Fit
-                        )
-                    } else {
-                        Box(
-                            modifier = Modifier
-                                .size(80.dp)
-                                .clip(RoundedCornerShape(16.dp))
-                                .background(if (isOn) NeonTheme.OutlineLime.copy(alpha = 0.2f) else NeonTheme.OutlineCyan.copy(alpha = 0.2f)),
-                            contentAlignment = Alignment.Center
+                    Box {
+                        Column(
+                            modifier = Modifier.clickable { onToggleWidget(widget) },
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text(widget.title.take(2).uppercase(), fontSize = 24.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                            if (displayBmp != null) {
+                                androidx.compose.foundation.Image(
+                                    bitmap = displayBmp.asImageBitmap(),
+                                    contentDescription = widget.title,
+                                    modifier = Modifier
+                                        .size(widget.imageSize.dp.coerceIn(32.dp, 256.dp)),
+                                    contentScale = ContentScale.Fit
+                                )
+                            } else {
+                                Box(
+                                    modifier = Modifier.size(80.dp).clip(RoundedCornerShape(12.dp)).background(NeonTheme.CardBackground),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(widget.title.take(2).uppercase(), fontSize = 24.sp, fontWeight = FontWeight.Bold, color = NeonTheme.OutlineCyan)
+                                }
+                            }
+                            Text(
+                                text = widget.title,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                        }
+
+                        if (isDeleteMode) {
+                            Icon(
+                                imageVector = Icons.Default.Close,
+                                contentDescription = "Excluir",
+                                tint = Color(0xFFFF5252),
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .size(22.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.Black.copy(alpha = 0.7f))
+                                    .clickable { onDeleteWidget(widget) }
+                            )
                         }
                     }
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        text = widget.title,
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = if (isOn) NeonTheme.OutlineLime else Color.White
-                    )
                 }
             }
         }
