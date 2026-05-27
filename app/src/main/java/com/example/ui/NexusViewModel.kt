@@ -21,13 +21,13 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
     // State Flows
     val connectionStatus: StateFlow<MqttStatus> = mqttEngine.status
     val widgets: StateFlow<List<WidgetConfig>> = repository.widgetsFlow
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
     val dashboardWidgets: StateFlow<List<WidgetConfig>> = widgets.map { list ->
         list.filter { it.type == "switch" || it.type == "command" }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
         
     val messageLogs: StateFlow<List<MqttMessageLog>> = repository.messageLogsFlow
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     val subscriptions: StateFlow<List<MqttSubscription>> = repository.subscriptionsFlow
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
@@ -75,20 +75,24 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
 
             try {
                 mqttEngine.messages.collect { msg ->
-                    Log.d("NexusViewModel", "Broadcast message: ${msg.topic} -> ${msg.payload}")
-                    // Update telemetry history for any matching source
-                    telemetrySources.value.forEach { source ->
-                        if (msg.topic == source.topic) {
-                            msg.payload.toFloatOrNull()?.let { value ->
-                                val current = _telemetryHistory.value[source.topic]?.toMutableList() ?: mutableListOf()
-                                current.add(value)
-                                if (current.size > 30) current.removeAt(0)
-                                _telemetryHistory.value = _telemetryHistory.value + (source.topic to current)
+                    try {
+                        Log.d("NexusViewModel", "Broadcast message: ${msg.topic} -> ${msg.payload}")
+                        // Update telemetry history for any matching source
+                        telemetrySources.value.forEach { source ->
+                            if (msg.topic == source.topic) {
+                                msg.payload.toFloatOrNull()?.let { value ->
+                                    val current = _telemetryHistory.value[source.topic]?.toMutableList() ?: mutableListOf()
+                                    current.add(value)
+                                    if (current.size > 30) current.removeAt(0)
+                                    _telemetryHistory.value = _telemetryHistory.value + (source.topic to current)
+                                }
                             }
                         }
-                    }
-                    widgets.value.firstOrNull { it.subscribeTopic == msg.topic }?.let {
-                        repository.updateWidgetValueBySubscribeTopic(msg.topic, msg.payload)
+                        widgets.value.firstOrNull { it.subscribeTopic == msg.topic }?.let {
+                            repository.updateWidgetValueBySubscribeTopic(msg.topic, msg.payload)
+                        }
+                    } catch (e: Exception) {
+                        Log.e("NexusViewModel", "Error processing message: ${msg.topic} -> ${msg.payload}", e)
                     }
                 }
             } catch (e: Exception) {

@@ -33,7 +33,6 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -93,7 +92,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun SplashScreen(onTimeout: () -> Unit) {
     LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(2800)
+        kotlinx.coroutines.delay(800)
         onTimeout()
     }
 
@@ -261,7 +260,7 @@ fun AppScreen() {
     val connectionStatus by viewModel.connectionStatus.collectAsState()
     val widgets by viewModel.widgets.collectAsState()
     val dashboardWidgets by viewModel.dashboardWidgets.collectAsState()
-    val messageLogs by viewModel.messageLogs.collectAsState()
+
     val telemetrySources by viewModel.telemetrySources.collectAsState()
     val telemetryHistory by viewModel.telemetryHistory.collectAsState()
     val brokerConfig by viewModel.brokerConfigState.collectAsState()
@@ -274,7 +273,7 @@ fun AppScreen() {
         }
     }
 
-    var currentTab by remember { mutableStateOf("dashboard") } // "dashboard", "logs", "metrics", "device", "speak"
+    var currentTab by remember { mutableStateOf("dashboard") } // "dashboard", "metrics", "device", "speak"
     var showBrokerSettingsDialog by remember { mutableStateOf(false) }
     var showSplashScreen by remember { mutableStateOf(true) }
 
@@ -312,10 +311,6 @@ fun AppScreen() {
                     onToggleWidget = { viewModel.toggleWidget(it) },
                     onDeleteWidget = { viewModel.deleteWidget(it) },
                     onToggleConnection = { viewModel.toggleConnection() }
-                )
-                "logs" -> LogScreen(
-                    logs = messageLogs,
-                    onClearLogs = { viewModel.clearLogs() }
                 )
                 "metrics" -> MetricsScreen(
                     widgets = widgets,
@@ -492,7 +487,6 @@ fun BottomNavigationBar(
     ) {
         val navItems = listOf(
             Triple("dashboard", "Grid", Icons.Default.Home),
-            Triple("logs", "Logs", Icons.AutoMirrored.Filled.List),
             Triple("metrics", "Métricas", Icons.Default.Info),
             Triple("device", "Aparelho", Icons.Default.Build),
             Triple("speak", "Comandos", Icons.Default.PlayArrow)
@@ -680,62 +674,7 @@ fun DashboardScreen(
     }
 }
 
-// --- Telemetry Logs Screen ---
-@Composable
-fun LogScreen(
-    logs: List<MqttMessageLog>,
-    onClearLogs: () -> Unit
-) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        item {
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(text = "REGISTRO DE EVENTOS", fontSize = 11.sp, color = NeonTheme.OutlineLime, letterSpacing = 1.5.sp, fontWeight = FontWeight.Bold)
-                    Text(text = "Logs de Mensagens", fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Bold)
-                }
-                IconButton(onClick = onClearLogs) {
-                    Icon(imageVector = Icons.Default.Delete, contentDescription = "Limpar logs", tint = Color(0xFFFF5252))
-                }
-            }
-        }
-
-        if (logs.isEmpty()) {
-            item {
-                Box(Modifier.fillMaxWidth().padding(vertical = 40.dp), contentAlignment = Alignment.Center) {
-                    Text("Nenhum log registrado.", color = NeonTheme.TextVariant, fontSize = 14.sp)
-                }
-            }
-        } else {
-            items(logs) { log ->
-                GlassCard(borderColor = Color(0x33FFFFFF)) {
-                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                        Text(log.topic, fontSize = 10.sp, fontWeight = FontWeight.Bold, color = Color.White, fontFamily = FontFamily.Monospace)
-                        Text(
-                            text = java.text.SimpleDateFormat("HH:mm:ss", java.util.Locale.getDefault()).format(java.util.Date(log.timestamp)),
-                            fontSize = 9.sp,
-                            color = NeonTheme.TextVariant,
-                            fontFamily = FontFamily.Monospace
-                        )
-                    }
-                    Spacer(Modifier.height(4.dp))
-                    Text(log.payload, fontSize = 13.sp, color = NeonTheme.TextVariant, fontFamily = FontFamily.Monospace)
-                    if (log.isOfflineTelemetry) {
-                        Spacer(Modifier.height(4.dp))
-                        Text("SIMULADO", fontSize = 8.sp, color = Color(0xFFFFB74D), fontWeight = FontWeight.Bold)
-                    }
-                }
-            }
-        }
-    }
-}
-
+// --- Telemetry Stat ---
 @Composable
 fun TelemetryStat(label: String, value: String, color: Color) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {

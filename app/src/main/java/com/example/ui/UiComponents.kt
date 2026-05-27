@@ -115,10 +115,11 @@ fun NeonGauge(
 
             // Neon glow layers (outer → inner → core)
             val glowParams = listOf(
-                30.dp.toPx() to 0.04f,
-                24.dp.toPx() to 0.08f,
-                18.dp.toPx() to 0.18f,
-                14.dp.toPx() to 0.35f
+                34.dp.toPx() to 0.11f,
+                28.dp.toPx() to 0.22f,
+                22.dp.toPx() to 0.40f,
+                16.dp.toPx() to 0.61f,
+                12.dp.toPx() to 0.84f
             )
             for ((width, alpha) in glowParams) {
                 drawArc(

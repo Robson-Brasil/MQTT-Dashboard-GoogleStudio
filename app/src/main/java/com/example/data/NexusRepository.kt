@@ -43,8 +43,8 @@ class NexusRepository(private val dao: MqttDao) {
         dao.insertMessageLog(
             MqttMessageLog(topic = topic, payload = payload, isOfflineTelemetry = isOffline)
         )
-        // Also automatically update any widget checking this topic
-        dao.updateWidgetValueByTopic(topic, payload)
+        // Also automatically update any widget checking this topic (by subscribeTopic, same as ViewModel)
+        dao.updateWidgetValueBySubscribeTopic(topic, payload)
     }
 
     suspend fun clearMessageLogs() {
