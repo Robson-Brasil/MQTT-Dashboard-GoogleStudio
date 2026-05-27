@@ -58,7 +58,6 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
-                    repository.initializeDefaultWidgetsIfNeeded()
                     val config = repository.getBrokerConfig()
                     _brokerConfigState.value = config
                     // Seed default telemetry source if none exist
@@ -221,22 +220,25 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
 
     // Add fully customized grid widgets to Room from front-end Form
     private suspend fun copyContentUriToFile(uriStr: String, prefix: String): String {
+        if (uriStr.isBlank()) return ""
         if (!uriStr.startsWith("content://")) return uriStr
         return try {
             withContext(Dispatchers.IO) {
                 val uri = Uri.parse(uriStr)
-                val fileName = "${prefix}_${System.currentTimeMillis()}.png"
                 val app = getApplication<Application>()
-                val input = app.contentResolver.openInputStream(uri) ?: return@withContext uriStr
-                input.use { stream ->
-                    app.openFileOutput(fileName, android.content.Context.MODE_PRIVATE).use { output ->
-                        stream.copyTo(output)
-                    }
+                val input = app.contentResolver.openInputStream(uri) ?: return@withContext ""
+                val bitmap = android.graphics.BitmapFactory.decodeStream(input)
+                input.close()
+                if (bitmap == null) return@withContext ""
+                val fileName = "${prefix}_${System.currentTimeMillis()}.png"
+                app.openFileOutput(fileName, android.content.Context.MODE_PRIVATE).use { output ->
+                    bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, output)
                 }
+                bitmap.recycle()
                 app.filesDir.absolutePath + "/" + fileName
             }
         } catch (e: Exception) {
-            uriStr
+            ""
         }
     }
 
@@ -350,6 +352,16 @@ class NexusViewModel(application: Application) : AndroidViewModel(application) {
             val b = widgets[indexB]
             repository.updateWidgetPosition(a.id, b.position)
             repository.updateWidgetPosition(b.id, a.position)
+        }
+    }
+
+    fun toggleWidget(widget: WidgetConfig) {
+        val isCurrentlyOn = widget.lastKnownValue == "ON" || widget.lastKnownValue == widget.payloadOn
+        val nextState = if (isCurrentlyOn) "OFF" else "ON"
+        val payload = if (nextState == "ON") widget.payloadOn else widget.payloadOff
+        mqttEngine.publish(widget.topic, payload)
+        viewModelScope.launch {
+            repository.updateWidgetValue(widget.topic, nextState)
         }
     }
 

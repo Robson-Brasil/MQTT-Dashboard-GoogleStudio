@@ -54,69 +54,6 @@ class NexusRepository(private val dao: MqttDao) {
     // Widgets Dashboard Configuration
     val widgetsFlow: Flow<List<WidgetConfig>> = dao.getAllWidgetsFlow()
 
-    suspend fun initializeDefaultWidgetsIfNeeded() {
-        if (dao.getWidgetsCount() == 0) {
-            val defaults = listOf(
-                WidgetConfig(
-                    title = "CORE TEMP",
-                    topic = "sensor/temp_01",
-                    type = "temperature",
-                    widgetSize = 2,
-                    iconName = "thermostat",
-                    colorHex = "#00dbe9",
-                    lastKnownValue = "24.8"
-                ),
-                WidgetConfig(
-                    title = "POWER GRID A",
-                    topic = "switch/power_01",
-                    type = "switch",
-                    widgetSize = 1,
-                    iconName = "bolt",
-                    colorHex = "#abd600",
-                    lastKnownValue = "ACTIVE"
-                ),
-                WidgetConfig(
-                    title = "DRIVE CAPACITY",
-                    topic = "drive/capacity_01",
-                    type = "gauge",
-                    widgetSize = 2,
-                    iconName = "storage",
-                    colorHex = "#00f0ff",
-                    lastKnownValue = "75"
-                ),
-                WidgetConfig(
-                    title = "NETWORK LATENCY",
-                    topic = "network/latency_01",
-                    type = "pressure", // used for stats grid
-                    widgetSize = 1,
-                    iconName = "speed",
-                    colorHex = "#ffb4ab",
-                    lastKnownValue = "12"
-                ),
-                WidgetConfig(
-                    title = "SYSTEM REBOOT",
-                    topic = "system/reboot_01",
-                    type = "command",
-                    widgetSize = 1,
-                    iconName = "restart_alt",
-                    colorHex = "#ffffff",
-                    lastKnownValue = "reboot"
-                )
-            )
-            for (widget in defaults) {
-                dao.insertWidget(widget)
-            }
-            
-            // Also ensure active default subscriptions exist
-            if (dao.getAllSubscriptions().isEmpty()) {
-                dao.addSubscription(MqttSubscription("sensor/temp_01"))
-                dao.addSubscription(MqttSubscription("switch/power_01"))
-                dao.addSubscription(MqttSubscription("drive/capacity_01"))
-                dao.addSubscription(MqttSubscription("network/latency_01"))
-            }
-        }
-    }
-
     suspend fun insertWidget(widget: WidgetConfig) {
         dao.insertWidget(widget)
     }

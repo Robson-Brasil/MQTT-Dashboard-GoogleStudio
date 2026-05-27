@@ -29,6 +29,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.items
@@ -274,8 +275,6 @@ fun AppScreen() {
 
     var currentTab by remember { mutableStateOf("dashboard") } // "dashboard", "logs", "metrics", "device", "speak"
     var showBrokerSettingsDialog by remember { mutableStateOf(false) }
-    var showAddWidgetDialog by remember { mutableStateOf(false) }
-    var editingWidget by remember { mutableStateOf<WidgetConfig?>(null) }
     var showSplashScreen by remember { mutableStateOf(true) }
 
     if (showSplashScreen) {
@@ -309,13 +308,8 @@ fun AppScreen() {
                 "dashboard" -> DashboardScreen(
                     widgets = widgets,
                     isOffline = isOffline,
-                    onAddWidgetClick = { showAddWidgetDialog = true },
-                    onDeleteWidget = { viewModel.deleteWidget(it) },
-                    onTriggerWidget = { viewModel.triggerWidgetCommand(it) },
-                    onEditWidget = { editingWidget = it },
-                    onMoveUp = { viewModel.moveWidgetUp(it) },
-                    onMoveDown = { viewModel.moveWidgetDown(it) },
-                    onSwapWidgets = { a, b -> viewModel.swapWidgets(a, b) }
+                    onToggleWidget = { viewModel.toggleWidget(it) },
+                    onToggleConnection = { viewModel.toggleConnection() }
                 )
                 "logs" -> LogScreen(
                     logs = messageLogs,
@@ -326,8 +320,6 @@ fun AppScreen() {
                     telemetrySources = telemetrySources,
                     telemetryHistory = telemetryHistory,
                     isOffline = isOffline,
-                    onAddWidget = { showAddWidgetDialog = true },
-                    onEditWidget = { editingWidget = it },
                     onDeleteWidget = { viewModel.deleteWidget(it) },
                     onRenameGauge = { widget, newTitle ->
                         viewModel.editWidget(
@@ -379,30 +371,6 @@ fun AppScreen() {
         )
     }
 
-    // Add Widget creation dialog
-        if (showAddWidgetDialog) {
-            AddWidgetDialog(
-                onDismiss = { showAddWidgetDialog = false },
-                onAdd = { title, topic, type, payloadOn, payloadOff, iconName, size, colorHex, subscribeTopic ->
-                    viewModel.addCustomWidget(title, topic, type, payloadOn, payloadOff, iconName, size, colorHex, subscribeTopic = subscribeTopic)
-                    Toast.makeText(context, "Widget adicionado!", Toast.LENGTH_SHORT).show()
-                    showAddWidgetDialog = false
-                }
-            )
-        }
-
-        // Edit Widget dialog
-        editingWidget?.let { widget ->
-            EditWidgetDialog(
-                widget = widget,
-                onDismiss = { editingWidget = null },
-                onSave = { title, topic, type, payloadOn, payloadOff, size, colorHex, imageOnUri, imageOffUri, subscribeTopic, editImageSize ->
-                    viewModel.editWidget(widget, title, topic, type, payloadOn, payloadOff, size, colorHex, imageOnUri, imageOffUri, subscribeTopic, editImageSize)
-                    Toast.makeText(context, "Widget atualizado!", Toast.LENGTH_SHORT).show()
-                    editingWidget = null
-                }
-            )
-        }
     }
 }
 
@@ -575,196 +543,103 @@ private fun loadWidgetBitmap(context: android.content.Context, uriString: String
     }
 }
 
-// --- Dashboard Widget Grid Screen ---
-@OptIn(ExperimentalFoundationApi::class)
+// --- Dashboard ---
 @Composable
 fun DashboardScreen(
     widgets: List<WidgetConfig>,
     isOffline: Boolean,
-    onAddWidgetClick: () -> Unit,
-    onDeleteWidget: (WidgetConfig) -> Unit,
-    onTriggerWidget: (WidgetConfig) -> Unit,
-    onEditWidget: (WidgetConfig) -> Unit,
-    onMoveUp: (WidgetConfig) -> Unit,
-    onMoveDown: (WidgetConfig) -> Unit,
-    onSwapWidgets: (Int, Int) -> Unit
+    onToggleWidget: (WidgetConfig) -> Unit,
+    onToggleConnection: () -> Unit = {}
 ) {
-    var isEditing by remember { mutableStateOf(false) }
-
-    LazyVerticalStaggeredGrid(
-        columns = StaggeredGridCells.Fixed(2),
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
         modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalItemSpacing = 12.dp
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item(span = StaggeredGridItemSpan.FullLine) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(text = "PAINEL DE CONTROLE", fontSize = 11.sp, color = NeonTheme.OutlineLime, letterSpacing = 1.5.sp, fontWeight = FontWeight.Bold)
-                    Text(text = "Dashboard Interativo", fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Bold)
-                }
-                if (isEditing) {
-                    TextButton(onClick = { isEditing = false }) {
-                        Icon(imageVector = Icons.Default.Close, contentDescription = "Sair", tint = Color(0xFFFF5252), modifier = Modifier.size(16.dp))
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text("Sair da Edição", fontSize = 11.sp, color = Color(0xFFFF5252))
-                    }
-                }
-            }
-        }
-
-        if (!isEditing) {
-            item(span = StaggeredGridItemSpan.FullLine) {
+        item(span = { GridItemSpan(2) }) {
+            Column {
+                Text(text = "PAINEL DE CONTROLE", fontSize = 11.sp, color = NeonTheme.OutlineLime, letterSpacing = 1.5.sp, fontWeight = FontWeight.Bold)
+                Text(text = "Dashboard Interativo", fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.height(12.dp))
                 Button(
-                    onClick = onAddWidgetClick,
+                    onClick = onToggleConnection,
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(containerColor = NeonTheme.OutlineCyan, contentColor = Color.Black),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (isOffline) Color(0xFFFF5252) else NeonTheme.OutlineLime,
+                        contentColor = Color.Black
+                    ),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Icon(imageVector = Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Adicionar Widget", fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                    Icon(
+                        imageVector = if (isOffline) Icons.Default.Close else Icons.Default.Check,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = if (isOffline) "CONECTAR AO BROKER" else "DESCONECTAR",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp
+                    )
                 }
             }
         }
 
         if (widgets.isEmpty()) {
-            item(span = StaggeredGridItemSpan.FullLine) {
-                Box(Modifier.fillMaxWidth().padding(vertical = 40.dp), contentAlignment = Alignment.Center) {
-                    Text("Nenhum widget configurado.", color = NeonTheme.TextVariant, fontSize = 14.sp)
+            item(span = { GridItemSpan(2) }) {
+                Box(Modifier.fillMaxWidth().padding(vertical = 32.dp), contentAlignment = Alignment.Center) {
+                    Text("Nenhum botão configurado. Crie um na aba Aparelhos.", color = NeonTheme.TextVariant, fontSize = 14.sp)
                 }
             }
         } else {
-            widgets.forEachIndexed { index, widget ->
-                item {
-                    val color = try { Color(android.graphics.Color.parseColor(widget.colorHex)) } catch (e: Exception) { NeonTheme.OutlineCyan }
+            items(widgets, key = { it.id }) { widget ->
+                val context = LocalContext.current
+                var onBmp by remember(widget.id, widget.imageOnUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
+                var offBmp by remember(widget.id, widget.imageOffUri) { mutableStateOf<android.graphics.Bitmap?>(null) }
+                LaunchedEffect(widget.id, widget.imageOnUri) {
+                    onBmp = loadWidgetBitmap(context, widget.imageOnUri)
+                }
+                LaunchedEffect(widget.id, widget.imageOffUri) {
+                    offBmp = loadWidgetBitmap(context, widget.imageOffUri)
+                }
 
-                    GlassCard(
-                        modifier = Modifier.combinedClickable(
-                            onClick = {
-                                if (!isEditing) onTriggerWidget(widget)
-                            },
-                            onLongClick = { isEditing = true }
-                        ),
-                        borderColor = color.copy(alpha = 0.3f)
-                    ) {
-                        Column(modifier = Modifier.fillMaxWidth()) {
-                            Row(
-                                Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    DynamicWidgetIcon(name = widget.iconName, color = color, modifier = Modifier.size(14.dp))
-                                    Spacer(Modifier.width(6.dp))
-                                    Text(widget.title, fontSize = 10.sp, fontWeight = FontWeight.Bold, color = Color.White)
-                                }
-                                if (isEditing) {
-                                    Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                                        Icon(Icons.Default.Edit, "Editar", tint = NeonTheme.OutlineCyan, modifier = Modifier.size(14.dp).clickable { onEditWidget(widget) })
-                                        Icon(Icons.Default.Delete, "Excluir", tint = Color(0xFFFF5252), modifier = Modifier.size(14.dp).clickable { onDeleteWidget(widget) })
-                                    }
-                                }
-                            }
+                val isOn = widget.lastKnownValue == "ON" || widget.lastKnownValue == widget.payloadOn
+                val displayBmp = if (isOn) (onBmp ?: offBmp) else (offBmp ?: onBmp)
 
-                            Spacer(Modifier.height(8.dp))
-
-                            when (widget.type) {
-                                "temperature" -> {
-                                    Text(widget.lastKnownValue.ifEmpty { "0" }, fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Color.White)
-                                    Text(" °C", fontSize = 16.sp, color = color)
-                                    Text("Tópico: ${widget.topic}", fontSize = 8.sp, color = NeonTheme.TextVariant, maxLines = 1)
-                                }
-                                "switch" -> {
-                                    val isOn = widget.lastKnownValue == "ON" || widget.lastKnownValue == widget.payloadOn
-                                    Spacer(Modifier.height(8.dp))
-                                    CustomizableToggle(checked = isOn, onCheckedChange = { onTriggerWidget(widget) })
-                                    Text(if (isOn) "LIGADO" else "DESLIGADO", fontSize = 9.sp, color = if (isOn) NeonTheme.OutlineLime else NeonTheme.TextVariant)
-                                }
-                                "gauge" -> {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Text(widget.lastKnownValue.ifEmpty { "0" }, fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Color.White)
-                                        Text("%", fontSize = 16.sp, color = color)
-                                    }
-                                    Spacer(Modifier.height(6.dp))
-                                    LinearProgressIndicator(
-                                        progress = { (widget.lastKnownValue.toFloatOrNull() ?: 0f) / 100f },
-                                        modifier = Modifier.fillMaxWidth().height(4.dp).clip(RoundedCornerShape(2.dp)),
-                                        color = color,
-                                        trackColor = Color(0xFF151B2D)
-                                    )
-                                }
-                                "pressure" -> {
-                                    Text(widget.lastKnownValue.ifEmpty { "12 ms / 342 ms" }, fontSize = 13.sp, fontWeight = FontWeight.Bold, color = color, fontFamily = FontFamily.Monospace)
-                                    Spacer(Modifier.height(4.dp))
-                                    Text("Status: ESTÁVEL", fontSize = 9.sp, color = NeonTheme.OutlineLime)
-                                }
-                                else -> {
-                                    val context = LocalContext.current
-                                    var widgetBmp by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
-                                    LaunchedEffect(widget.id, widget.imageOnUri) {
-                                        widgetBmp = loadWidgetBitmap(context, widget.imageOnUri)
-                                    }
-                                    if (widgetBmp != null) {
-                                        Box(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .clip(RoundedCornerShape(12.dp))
-                                                .clickable { onTriggerWidget(widget) },
-                                            contentAlignment = Alignment.Center
-                                        ) {
-                                            androidx.compose.foundation.Image(
-                                                bitmap = widgetBmp!!.asImageBitmap(),
-                                                contentDescription = widget.title,
-                                                modifier = Modifier
-                                                    .size(widget.imageSize.dp.coerceAtMost(160.dp))
-                                                    .clip(RoundedCornerShape(12.dp)),
-                                                contentScale = ContentScale.Fit
-                                            )
-                                        }
-                                    } else {
-                                        Text(widget.topic, fontSize = 12.sp, color = Color.White, fontWeight = FontWeight.Bold)
-                                    }
-                                    Text(
-                                        text = "URI: ${widget.imageOnUri.takeLast(40)}",
-                                        fontSize = 7.sp,
-                                        color = Color(0xFFFF5252),
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis
-                                    )
-                                    Spacer(Modifier.height(8.dp))
-                                    Text(
-                                        text = widget.title,
-                                        fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = Color.White,
-                                        modifier = Modifier.fillMaxWidth(),
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis
-                                    )
-                                    Button(
-                                        onClick = { onTriggerWidget(widget) },
-                                        colors = ButtonDefaults.buttonColors(containerColor = color, contentColor = Color.Black),
-                                        shape = RoundedCornerShape(8.dp),
-                                        modifier = Modifier.fillMaxWidth()
-                                    ) {
-                                        Text("DISPARAR", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                                    }
-                                }
-                            }
+                Column(
+                    modifier = Modifier.fillMaxWidth().clickable { onToggleWidget(widget) },
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    if (displayBmp != null) {
+                        androidx.compose.foundation.Image(
+                            bitmap = displayBmp.asImageBitmap(),
+                            contentDescription = widget.title,
+                            modifier = Modifier
+                                .size(widget.imageSize.dp.coerceAtMost(120.dp))
+                                .clip(RoundedCornerShape(16.dp))
+                                .background(if (isOn) Color(0xFF1B5E20) else Color(0xFFB71C1C).copy(alpha = 0.3f)),
+                            contentScale = ContentScale.Fit
+                        )
+                    } else {
+                        Box(
+                            modifier = Modifier
+                                .size(80.dp)
+                                .clip(RoundedCornerShape(16.dp))
+                                .background(if (isOn) NeonTheme.OutlineLime.copy(alpha = 0.2f) else NeonTheme.OutlineCyan.copy(alpha = 0.2f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(widget.title.take(2).uppercase(), fontSize = 24.sp, fontWeight = FontWeight.Bold, color = Color.White)
                         }
                     }
+                    Spacer(Modifier.height(6.dp))
+                    Text(
+                        text = widget.title,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = if (isOn) NeonTheme.OutlineLime else Color.White
+                    )
                 }
-            }
-        }
-
-        if (isEditing) {
-            item(span = StaggeredGridItemSpan.FullLine) {
-                Text("Toque nos ícones para editar/excluir", fontSize = 10.sp, color = NeonTheme.TextVariant, modifier = Modifier.padding(top = 8.dp))
             }
         }
     }
@@ -842,8 +717,6 @@ fun MetricsScreen(
     telemetrySources: List<TelemetrySource>,
     telemetryHistory: Map<String, List<Float>>,
     isOffline: Boolean,
-    onAddWidget: () -> Unit,
-    onEditWidget: (WidgetConfig) -> Unit,
     onDeleteWidget: (WidgetConfig) -> Unit,
     onRenameGauge: (WidgetConfig, String) -> Unit,
     onAddTelemetrySource: (topic: String, label: String, colorHex: String) -> Unit,
@@ -1072,23 +945,6 @@ fun MetricsScreen(
             }
         }
 
-        // ── Criar Gauge button ──
-        item {
-            Button(
-                onClick = onAddWidget,
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = NeonTheme.OutlineLime.copy(alpha = 0.1f),
-                    contentColor = NeonTheme.OutlineLime
-                ),
-                shape = RoundedCornerShape(10.dp),
-                border = BorderStroke(1.dp, NeonTheme.OutlineLime.copy(alpha = 0.2f))
-            ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = null, modifier = Modifier.size(16.dp))
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(text = "Criar Gauge", fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
-            }
-        }
     }
 
     // ── Edit Gauge Dialog ──
@@ -2071,317 +1927,5 @@ fun BrokerSettingsDialog(
             }
         },
         dismissButton = null
-    )
-}
-
-@Composable
-fun AddWidgetDialog(
-    onDismiss: () -> Unit,
-    onAdd: (
-        title: String,
-        topic: String,
-        type: String,
-        payloadOn: String,
-        payloadOff: String,
-        iconName: String,
-        size: Int,
-        colorHex: String,
-        subscribeTopic: String
-    ) -> Unit
-) {
-    var title by remember { mutableStateOf("Sensor Sala") }
-    var topic by remember { mutableStateOf("home/living/sensor") }
-    var subscribeTopic by remember { mutableStateOf("") }
-    var type by remember { mutableStateOf("temperature") } // "temperature", "switch", "gauge", "pressure", "command"
-    var payloadOn by remember { mutableStateOf("1") }
-    var payloadOff by remember { mutableStateOf("0") }
-    var iconName by remember { mutableStateOf("thermostat") }
-    var size by remember { mutableStateOf(1) } // 1: compact, 2: wide
-    var colorHex by remember { mutableStateOf("#00dbe9") }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(text = "NOVO ATALHO DA DASHBOARD", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = NeonTheme.OutlineCyan)
-        },
-        containerColor = NeonTheme.CardBackground,
-        tonalElevation = 8.dp,
-        text = {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.fillMaxWidth().heightIn(max = 300.dp)
-            ) {
-                item {
-                    OutlinedTextField(
-                        value = title,
-                        onValueChange = { title = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Título do Atalho", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    OutlinedTextField(
-                        value = topic,
-                        onValueChange = { topic = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Tópico (PUBLISH)", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    OutlinedTextField(
-                        value = subscribeTopic,
-                        onValueChange = { subscribeTopic = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Tópico (SUBSCRIBE) - opcional", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    Text(text = "Tipo de Amostragem:", fontSize = 11.sp, color = NeonTheme.TextVariant, fontWeight = FontWeight.Bold)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        listOf("temperature" to "Termômetro", "switch" to "Chave Switch", "gauge" to "Gráfico Progressivo").forEach { (tpId, lbl) ->
-                            val isSel = type == tpId
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .background(if (isSel) NeonTheme.OutlineCyan.copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (isSel) NeonTheme.OutlineCyan else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable {
-                                        type = tpId
-                                        iconName = when(tpId) {
-                                            "temperature" -> "thermostat"
-                                            "switch" -> "bolt"
-                                            else -> "storage"
-                                        }
-                                    }
-                                    .padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(text = lbl, fontSize = 8.sp, textAlign = TextAlign.Center, color = Color.White, maxLines = 1)
-                            }
-                        }
-                    }
-                }
-                if (type == "switch") {
-                    item {
-                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            OutlinedTextField(
-                                value = payloadOn,
-                                onValueChange = { payloadOn = it },
-                                modifier = Modifier.weight(1f),
-                                label = { Text("Payload ON", fontSize = 11.sp) },
-                                colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                            OutlinedTextField(
-                                value = payloadOff,
-                                onValueChange = { payloadOff = it },
-                                modifier = Modifier.weight(1f),
-                                label = { Text("Payload OFF", fontSize = 11.sp) },
-                                colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                            )
-                        }
-                    }
-                }
-                item {
-                    Text(text = "Estilo Visual & Cor:", fontSize = 11.sp, color = NeonTheme.TextVariant, fontWeight = FontWeight.Bold)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        listOf("#00dbe9" to "Azul", "#abd600" to "Verde", "#fface8" to "Rosa", "#ffffff" to "Branco").forEach { (hex, nm) ->
-                            val isSel = colorHex == hex
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .background(if (isSel) Color(android.graphics.Color.parseColor(hex)).copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (isSel) Color(android.graphics.Color.parseColor(hex)) else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable { colorHex = hex }
-                                    .padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(text = nm, fontSize = 9.sp, color = Color.White)
-                            }
-                        }
-                    }
-                }
-                item {
-                    Text(text = "Largura do Atalho:", fontSize = 11.sp, color = NeonTheme.TextVariant, fontWeight = FontWeight.Bold)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        listOf(1 to "Compacto (Meio-Saco)", 2 to "Avançado (Largo)").forEach { (szVal, label) ->
-                            val isSel = size == szVal
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .background(if (isSel) NeonTheme.OutlineLime.copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (isSel) NeonTheme.OutlineLime else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable { size = szVal }
-                                    .padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(text = label, fontSize = 9.sp, color = Color.White)
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    onAdd(title, topic, type, payloadOn, payloadOff, iconName, size, colorHex, subscribeTopic)
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = NeonTheme.OutlineCyan, contentColor = Color.Black)
-            ) {
-                Text("ADICIONAR NA MALHA", fontWeight = FontWeight.Bold)
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("CANCELAR", color = Color.LightGray)
-            }
-        }
-    )
-}
-
-@Composable
-fun EditWidgetDialog(
-    widget: WidgetConfig,
-    onDismiss: () -> Unit,
-    onSave: (title: String, topic: String, type: String, payloadOn: String, payloadOff: String, size: Int, colorHex: String, imageOnUri: String, imageOffUri: String, subscribeTopic: String, imageSize: Float) -> Unit
-) {
-    var title by remember(widget) { mutableStateOf(widget.title) }
-    var topic by remember(widget) { mutableStateOf(widget.topic) }
-    var type by remember(widget) { mutableStateOf(widget.type) }
-    var payloadOn by remember(widget) { mutableStateOf(widget.payloadOn) }
-    var payloadOff by remember(widget) { mutableStateOf(widget.payloadOff) }
-    var size by remember(widget) { mutableStateOf(widget.widgetSize) }
-    var colorHex by remember(widget) { mutableStateOf(widget.colorHex) }
-    var subscribeTopic by remember(widget) { mutableStateOf(widget.subscribeTopic) }
-    var editImageSize by remember(widget) { mutableStateOf(widget.imageSize) }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(text = "EDITAR ${widget.title}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = NeonTheme.OutlineCyan)
-        },
-        containerColor = NeonTheme.CardBackground,
-        tonalElevation = 8.dp,
-        text = {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.fillMaxWidth().heightIn(max = 320.dp)
-            ) {
-                item {
-                    OutlinedTextField(
-                        value = title,
-                        onValueChange = { title = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Nome", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    OutlinedTextField(
-                        value = topic,
-                        onValueChange = { topic = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Tópico", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    OutlinedTextField(
-                        value = subscribeTopic,
-                        onValueChange = { subscribeTopic = it },
-                        modifier = Modifier.fillMaxWidth(),
-                        label = { Text("Subscrever (opcional)", fontSize = 11.sp) },
-                        colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan)
-                    )
-                }
-                item {
-                    Text(text = "Tipo:", fontSize = 11.sp, color = NeonTheme.TextVariant)
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                        listOf("switch" to "Switch", "command" to "Comando").forEach { (t, l) ->
-                            val sel = type == t
-                            Box(
-                                modifier = Modifier
-                                    .weight(1f).background(if (sel) NeonTheme.OutlineCyan.copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (sel) NeonTheme.OutlineCyan else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable { type = t }.padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) { Text(l, fontSize = 9.sp, color = Color.White) }
-                        }
-                    }
-                }
-                item {
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                        OutlinedTextField(payloadOn, { payloadOn = it }, modifier = Modifier.weight(1f), label = { Text("Payload ON", fontSize = 11.sp) }, colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan))
-                        OutlinedTextField(payloadOff, { payloadOff = it }, modifier = Modifier.weight(1f), label = { Text("Payload OFF", fontSize = 11.sp) }, colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = NeonTheme.OutlineCyan))
-                    }
-                }
-                item {
-                    Text(text = "Cor:", fontSize = 11.sp, color = NeonTheme.TextVariant)
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                        listOf("#00dbe9" to "Azul", "#abd600" to "Verde", "#fface8" to "Rosa", "#ffffff" to "Branco").forEach { (hex, nm) ->
-                            val sel = colorHex == hex
-                            Box(
-                                modifier = Modifier.weight(1f).background(if (sel) Color(android.graphics.Color.parseColor(hex)).copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (sel) Color(android.graphics.Color.parseColor(hex)) else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable { colorHex = hex }.padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) { Text(nm, fontSize = 9.sp, color = Color.White) }
-                        }
-                    }
-                }
-                item {
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-                        listOf(1 to "Compacto", 2 to "Largo").forEach { (sz, l) ->
-                            val sel = size == sz
-                            Box(
-                                modifier = Modifier.weight(1f).background(if (sel) NeonTheme.OutlineLime.copy(alpha = 0.15f) else Color(0xFF151B2D))
-                                    .border(1.dp, if (sel) NeonTheme.OutlineLime else Color(0xFF2E3447), RoundedCornerShape(4.dp))
-                                    .clickable { size = sz }.padding(vertical = 8.dp),
-                                contentAlignment = Alignment.Center
-                            ) { Text(l, fontSize = 9.sp, color = Color.White) }
-                        }
-                    }
-                }
-                item {
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        Text(text = "Tamanho:", fontSize = 11.sp, color = NeonTheme.TextVariant)
-                        Text(text = "${editImageSize.toInt()}px", fontSize = 12.sp, color = NeonTheme.OutlineCyan, fontWeight = FontWeight.Bold)
-                    }
-                }
-                item {
-                    Slider(
-                        value = editImageSize,
-                        onValueChange = { editImageSize = it },
-                        valueRange = 32f..256f,
-                        colors = SliderDefaults.colors(thumbColor = NeonTheme.OutlineCyan, activeTrackColor = NeonTheme.OutlineCyan)
-                    )
-                }
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    onSave(title, topic, type, payloadOn, payloadOff, size, colorHex, widget.imageOnUri, widget.imageOffUri, subscribeTopic, editImageSize)
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = NeonTheme.OutlineCyan, contentColor = Color.Black)
-            ) { Text("SALVAR ALTERAÇÕES", fontWeight = FontWeight.Bold) }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) { Text("CANCELAR", color = Color.LightGray) }
-        }
     )
 }
